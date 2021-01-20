@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html class="nojs debug-screens {% block class %}{% endblock class %}" lang="en">
+    <head>
+        {% include "_partials/html-head.njk" %}
+    </head>
+
+    <body class="min-h-screen antialiased leading-normal text-gray-900 bg-gray-300 fade loading dark:text-gray-300 dark:bg-gray-700" data-env="{{ node.env }}">
+        {% block header %}
+            {% include "_partials/site-header.njk" %}
+        {% endblock %}
+
+        <main class='container h-full' id="main-content" tabindex="-1">
+            {% block content %}
+                {{ content | safe }}
+            {% endblock %}
+        </main>
+
+        {% include "_partials/site-footer.njk" %}
+    </body>
+</html>

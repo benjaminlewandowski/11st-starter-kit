@@ -1,0 +1,42 @@
+{% extends "./../page.njk" %}
+
+{% block header %}
+    {% include "_partials/site-header-anon.njk" %}
+{% endblock %}
+
+{% block class %}
+    {{ super() }}
+    is-login
+{% endblock class %}
+
+{% block content %}
+    <article class="">
+        <h1>
+            Log in</h1>
+        <p>
+            Email or Username</p>
+        <form action="/feed">
+            <input type="text" placeholder="example@mydomain.com" ">
+            <input type="password" placeholder="***********">
+            <div class="flex justify-between my-4">
+                <div class="checkbox">
+                    <input type="checkbox" id="chekcbox1" checked="">
+                    <label for="chekcbox1">
+                        <span class="checkbox-icon"></span>Remember Me</label>
+                </div>
+                <a href="#">
+                    Forgot Your Password?
+                </a>
+            </div>
+            <button type="submit">Login</button>
+            <div>
+                <p>
+                    Not registered?
+                    <a href="/register">
+                        Create a account
+                    </a>
+                </p>
+            </div>
+        </form>
+    </article>
+{% endblock %}

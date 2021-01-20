@@ -1,0 +1,26 @@
+{
+    "mainloggedin": [
+        {
+            "text": "Home",
+            "url": "/",
+            "classes": ""
+        },
+        {
+            "text": "About",
+            "url": "/about",
+            "classes": ""
+        }
+    ],
+    "mainanon": [
+        {
+            "text": "Register",
+            "url": "/register",
+            "classes": "bg-blue-800 border-blue-900 text-gray-100"
+        },
+        {
+            "text": "Login",
+            "url": "/login",
+            "classes": "text-gray-700 border-gray-700"
+        }
+    ]
+}

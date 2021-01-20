@@ -1,0 +1,9 @@
+{% extends "./site-navigation.njk" %}
+
+{% block mainnav %}
+    {% for item in navigation.mainanon %}
+        {% include "_partials/site-navigation-item.njk" %}
+    {% endfor %}
+{% endblock %}
+
+{% block usericons %}{% endblock %}}

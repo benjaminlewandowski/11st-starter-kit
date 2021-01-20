@@ -1,15 +1,15 @@
 module.exports = {
     mount: {
-        'src/_site': { url: '/', static: true, resolve: false },
-        'src/scripts': { url: '/scripts' },
-        'src/styles': { url: '/styles' },
+        'src/_build': { url: '/', static: true, resolve: false },
+        'src/resources/scripts': { url: '/scripts' },
+        'src/resources/styles': { url: '/styles' },
     },
     plugins: [
         '@snowpack/plugin-postcss',
         [
             '@snowpack/plugin-run-script',
             {
-                cmd: 'eleventy',
+                cmd: 'eleventy --quiet',
                 watch: '$1 --watch',
             },
         ],
@@ -23,7 +23,7 @@ module.exports = {
         out: 'dist',
     },
     devOptions: {
-        hmrDelay: 500,
+        hmrDelay: 600,
         open: 'none',
     },
     optimize: {

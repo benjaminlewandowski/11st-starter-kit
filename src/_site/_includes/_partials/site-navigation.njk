@@ -1,0 +1,15 @@
+<nav>
+    <ul class="flex items-center space-x-4">
+        {% block mainnav %}
+            {% for item in navigation.mainloggedin %}
+                {% include "_partials/site-navigation-item.njk" %}
+            {% endfor %}
+        {% endblock %}
+
+        {% include "_icons/colorswitcher.njk" %}
+
+        {% block usericons %}
+            usericon
+        {% endblock %}
+    </ul>
+</nav>

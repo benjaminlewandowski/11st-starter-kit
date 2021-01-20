@@ -1,2 +1,2 @@
 dist/*
-src/_site/*
+src/_build/*

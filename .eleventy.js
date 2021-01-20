@@ -1,16 +1,49 @@
 const fs = require('fs');
 
+const htmlmin = require('html-minifier');
+
+const pluginNavigation = require('@11ty/eleventy-navigation');
+const pluginRss = require('@11ty/eleventy-plugin-rss');
+const pluginSEO = require('eleventy-plugin-seo');
+const pluginLazyImages = require('eleventy-plugin-lazyimages');
+const pluginSvgContents = require('eleventy-plugin-svg-contents');
+
 module.exports = function (config) {
-    config.setLiquidOptions({
-        dynamicPartials: true,
-    });
+    config.setQuietMode(true);
+
+    // Plugins
+    config.addPlugin(pluginNavigation);
+    config.addPlugin(pluginLazyImages);
+    config.addPlugin(pluginRss);
+    config.addPlugin(pluginSvgContents);
+    config.addPlugin(pluginSEO, require('./src/_site/_data/site.json'));
 
     // Static assets to pass through
-    config.addPassthroughCopy('./src/fonts');
-    config.addPassthroughCopy('./src/images');
-    config.addPassthroughCopy('./src/favicon.ico');
-    config.addPassthroughCopy('./src/manifest.json');
-    config.addPassthroughCopy('./src/robots.txt');
+    config.addPassthroughCopy({ './src/fonts': 'fonts' });
+    config.addPassthroughCopy({ './src/media/images': 'images' });
+    config.addPassthroughCopy({ './src/media/video': 'video' });
+    config.addPassthroughCopy({ './src/static': '/' });
+
+    // WatchTargets
+    config.addWatchTarget('./src/resources/css/**/');
+    config.addWatchTarget('./src/resources/js/');
+    config.addWatchTarget('./src/static/fonts/');
+    config.addWatchTarget('./src/static/images/');
+    config.addWatchTarget('./build/**');
+
+    // Add dump filter to Nunjucks
+    config.addFilter('dump', (obj) => {
+        return util.inspect(obj);
+    });
+
+    // Add a HTML timestamp formatter filter to Nunjucks
+    config.addFilter(
+        'htmlDateDisplay',
+        require('./src/_site/_filters/timestamp.js')
+    );
+
+    // Add a readable date formatter filter to Nunjucks
+    config.addFilter('dateDisplay', require('./src/_site/_filters/dates.js'));
 
     // 404
     config.setBrowserSyncConfig({
@@ -27,15 +60,43 @@ module.exports = function (config) {
         },
     });
 
+    // minify if production
+    if (config.environment === 'production') {
+        config.addTransform('htmlmin', function (content, outputPath) {
+            if (outputPath.endsWith('.html')) {
+                let minified = htmlmin.minify(content, {
+                    useShortDoctype: true,
+                    removeComments: true,
+                    collapseWhitespace: true,
+                });
+                return minified;
+            }
+            return content;
+        });
+    }
+
+    // Layout Aliases
+    // Default Layouts
+    config.addLayoutAlias('default', 'default.njk');
+    config.addLayoutAlias('post', 'post.njk');
+    config.addLayoutAlias('page', 'page.njk');
+    config.addLayoutAlias('listing', 'listing.njk');
+
+    // Special Layouts
+    config.addLayoutAlias('index', 'special/index.njk');
+    config.addLayoutAlias('login', 'special/login.njk');
+    config.addLayoutAlias('register', 'special/register.njk');
+    config.addLayoutAlias('404', 'special/404.njk');
+
     return {
         dir: {
-            input: 'src',
-            output: 'src/_site',
+            input: 'src/_site',
+            output: 'src/_build',
+            data: '_data',
+            includes: '_includes',
+            layouts: '_layouts',
         },
         passthroughFileCopy: true,
-        templateFormats: ['html', 'md', 'liquid'],
-        htmlTemplateEngine: 'liquid',
-        dataTemplateEngine: 'liquid',
-        markdownTemplateEngine: 'liquid',
+        templateFormats: ['md', 'njk', 'js', 'json'],
     };
 };

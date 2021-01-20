@@ -1,0 +1,46 @@
+{% extends "./../page.njk" %}
+
+{% block header %}
+    {% include "_partials/site-header-anon.njk" %}
+{% endblock %}
+
+{% block class %}
+    {{ super() }}
+    is-register
+{% endblock class %}
+
+{% block content %}
+    <article>
+        <h1>
+            Sign in</h1>
+        <p>
+            Register to manage your account
+        </p>
+        <form action="/feed">
+            <div>
+                <input type="text" placeholder="First Name">
+                <input type="text" placeholder="Last Name">
+            </div>
+            <input type="text" placeholder="Email">
+            <input type="text" placeholder="Password">
+            <input type="text" placeholder="Confirm Password">
+            <div>
+                <div>
+                    <input type="checkbox" id="agree" checked="">
+                    <label for="agree">I Agree</label>
+                </div>
+                <a href="#">
+                    Terms and Conditions</a>
+            </div>
+            <button type="submit">Login</button>
+            <div>
+                <p>
+                    Do you have an account?
+                    <a href="/login">
+                        Login
+                    </a>
+                </p>
+            </div>
+        </form>
+    </article>
+{% endblock %}
