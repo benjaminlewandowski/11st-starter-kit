@@ -104,16 +104,21 @@
 
 #site_header {
     &::before {
+        @apply bg-gray-100 border-gray-100 shadow dark:bg-gray-900 dark:border-gray-900;
+
         position: absolute;
         top: 0;
         left: 0;
+        z-index: -1;
+
+        display: block;
+
         width: 100%;
         height: 4rem;
-        display: block;
-        border-width: 2px;
+
         border-style: solid;
-        @apply bg-gray-100 border-gray-100 shadow dark: bg-gray-900 dark: border-gray-900;
-        z-index: -1;
+
+        border-width: 2px;
 
         content: '';
     }
@@ -123,12 +128,12 @@ body {
     &:before {
         position: fixed;
         top: -75vw;
+        left: -50vw;
         z-index: -2;
 
         display: block;
         width: 150%;
         height: 150vw;
-        left: -50vw;
 
         background-image: radial-gradient(
             rgb(3, 105, 161) 0,
@@ -187,34 +192,37 @@ body {
 
 #sidebar {
     position: fixed;
-    width: 14rem;
-    height: calc(100vh - 4rem - 2px);
-    min-height: 32rem;
     top: calc(4rem + 2px);
     z-index: 20;
 
-    @apply bg-white dark:bg-black;
+    width: 14rem;
+    height: calc(100vh - 4rem - 2px);
+    min-height: 32rem;
 
-    transition: ease-in-out 0.5s;
     transform: translateX(-14rem);
     opacity: 0;
 
+    transition: ease-in-out 0.5s;
+
+    @apply bg-white dark:bg-black;
+
     &::before {
+        position: absolute;
+        right: 100%;
+
+        display: block;
         width: 100%;
         height: 100%;
 
-        content: '';
-        display: block;
-        @apply bg-white dark:bg-black;
-        right: 100%;
-        position: absolute;
-
         transition: ease-in-out 0.5s;
+
+        content: '';
+        @apply bg-white dark:bg-black;
     }
 
     &.fade-in {
-        opacity: 1;
         transform: translateX(0);
+        opacity: 1;
     }
 }
 
@@ -223,26 +231,18 @@ body {
     left: calc((14rem + 1.5rem) - 4rem);
 
     @media (min-width: 512px) {
-        /* max-width: 96%;
-        padding-right: 1.5rem;*/
         left: calc((2vw + 14rem + 1.5rem) - 4rem);
     }
 
     @media (min-width: 768px) {
-        /* max-width: 94%;
-        padding-right: 2rem; */
         left: calc((3vw + 14rem + 2rem) - 4rem);
     }
 
     @media (min-width: 1024px) {
-        /* max-width: 92%;
-        padding-right: 2.5rem; */
         left: calc((4vw + 14rem + 2.5rem) - 4rem);
     }
 
     @media (min-width: 1280px) {
-        /* max-width: 90%;
-        padding-right: 3rem; */
         left: calc((5vw + 14rem + 3rem) - 4rem);
     }
 
