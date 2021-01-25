@@ -1,27 +1,30 @@
 {
-  "extends": [
-    "stylelint-config-standard",
-    "stylelint-config-prettier"
-  ],
-  "plugins": [
-    "stylelint-order"
-  ],
-  "rules": {
-    "no-descending-specificity": null,
-    "order/order": [
-      "custom-properties",
-      "declarations"
+    "extends": [
+        "stylelint-config-standard",
+        "stylelint-config-prettier"
     ],
-    "order/properties-alphabetical-order": true,
-    "at-rule-no-unknown": [ true, {
-      ignoreAtRules: [
-        'apply',
-        'layer',
-        'responsive',
-        'screen',
-        'tailwind',
-        'variants'
-      ]
-    }]
-  }
+    "plugins": [
+        "stylelint-order"
+    ],
+    "rules": {
+        "no-descending-specificity": null,
+        "order/order": [
+            "custom-properties",
+            "declarations"
+        ],
+        "order/properties-alphabetical-order": true,
+        "at-rule-no-unknown": [
+            true,
+            {
+                "ignoreAtRules": [
+                    "apply",
+                    "layer",
+                    "responsive",
+                    "screen",
+                    "tailwind",
+                    "variants"
+                ]
+            }
+        ]
+    }
 }

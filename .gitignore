@@ -1,4 +1,4 @@
-# dependecies installed by npm
+# dependecies installed by npm/yarn
 node_modules
 web_modules
 
@@ -21,3 +21,14 @@ report.html
 
 # Local Netlify folder
 .netlify
+
+.dccache
+
+.vscode
+
+.DS_Store
+.idea
+.fseventsd
+[Dd]esktop.ini
+yarn-debug.log*
+yarn-error.log*

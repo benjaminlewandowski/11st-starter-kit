@@ -9,6 +9,8 @@ const pluginLazyImages = require('eleventy-plugin-lazyimages');
 const pluginSvgContents = require('eleventy-plugin-svg-contents');
 
 module.exports = function (config) {
+    config.setUseGitIgnore(true);
+    config.setDataDeepMerge(true);
     config.setQuietMode(true);
 
     // Plugins
@@ -39,11 +41,14 @@ module.exports = function (config) {
     // Add a HTML timestamp formatter filter to Nunjucks
     config.addFilter(
         'htmlDateDisplay',
-        require('./src/_site/_filters/timestamp.js')
+        require('./src/_site/_includes/_filters/timestamp.js')
     );
 
     // Add a readable date formatter filter to Nunjucks
-    config.addFilter('dateDisplay', require('./src/_site/_filters/dates.js'));
+    config.addFilter(
+        'dateDisplay',
+        require('./src/_site/_includes/_filters/dates.js')
+    );
 
     // 404
     config.setBrowserSyncConfig({
@@ -64,12 +69,11 @@ module.exports = function (config) {
     if (config.environment === 'production') {
         config.addTransform('htmlmin', function (content, outputPath) {
             if (outputPath.endsWith('.html')) {
-                let minified = htmlmin.minify(content, {
+                return htmlmin.minify(content, {
                     useShortDoctype: true,
                     removeComments: true,
                     collapseWhitespace: true,
                 });
-                return minified;
             }
             return content;
         });

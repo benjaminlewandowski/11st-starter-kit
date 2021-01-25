@@ -1,4 +1,9 @@
-<nav>
+<nav
+    class='"relative z-20'
+    x-data="{showPref: false, preference: localStorage.getItem('theme'), atTop: true}"
+    x-init="$watch('preference', (val) => { systemPreference(val) });"
+    @scroll.window="atTop = (window.pageYOffset > 30) ? false : true"
+>
     <ul class="flex items-center space-x-4">
         {% block mainnav %}
             {% for item in navigation.mainloggedin %}
@@ -6,10 +11,90 @@
             {% endfor %}
         {% endblock %}
 
-        {% include "_icons/colorswitcher.njk" %}
+        <li class="relative ml-2" id="js-colorschemeswitcher">
+            <button
+                @click="showPref = !showPref"
+                @click.away="showPref = false"
+                x-bind:aria-label="showPref ? 'Menu sluiten' : 'Menu openen'"
+                x-bind:aria-expanded="showPref"
+                class="flex items-center justify-center w-8 h-8 text-gray-900 transition-colors duration-500 bg-gray-300 rounded-full hover:bg-gray-200 dark:text-gray-300 dark:bg-gray-700 dark:hover:bg-gray-800">
+                {{ '/src/_site/_includes/_icons/svg/hero/solid/sun.svg' | svgContents("flex dark:hidden w-5 h-5 fill-current") | safe }}
+                {{ '/src/_site/_includes/_icons/svg/hero/solid/moon.svg' | svgContents("hidden dark:flex w-5 h-5 fill-current") | safe }}
+            </button>
+            <div class="absolute right-0 top-12 z-20 w-36 opacity-0 transition-all duration-300 transform"
+                 :aria-expanded="showPref"
+                {# :hidden="!showPref" #}
+                 :class="{
+            'translate-y-0 opacity-100' : showPref,
+            'translate-y-8 pointer-events-none' : !showPref
+          }"
+            >
+
+                <script>
+                    const root = document.documentElement;
+                    const colorSchemeMedia = window.matchMedia("(prefers-color-scheme: dark)");
+
+                    function systemPreference(val) {
+                        if (val === "system") {
+                            localStorage.removeItem("theme");
+                        } else {
+                            localStorage.setItem("theme", val);
+                        }
+                        if (val === "dark" || (val === "system" && colorSchemeMedia.matches)) {
+                            root.classList.add("dark");
+                        } else {
+                            root.classList.remove("dark");
+                        }
+                    }
+
+                    colorSchemeMedia.addEventListener("change", (e) => {
+                        if (e.matches) {
+                            root.classList.add("dark");
+                        } else {
+                            root.classList.remove("dark");
+                        }
+                    });
+                </script>
+
+                {% set options = [
+                    [ "System Mode", "system", "preference != 'light' && preference != 'dark'" ],
+                    [ "Light Mode", "light", "preference == 'light'"],
+                    [ "Dark Mode", "dark", "preference == 'dark'"]
+                ] %}
+
+                <div class="bg-white rounded-lg border border-gray-300 dark:bg-gray-800 dark:border-gray-600">
+                    {% for name, value, state in options %}
+                        <button x-on:click="preference = '{{ value }}'" x-bind:tabindex=" showPref ? '3' : '-1' " class="block relative w-full font-medium text-left text-gray-500 rounded border-t-2 border-gray-300 ring-pink-500 ring-offset-4 ring-offset-pink-200 cursor-pointer dark:text-gray-400 hover:text-gray-600 focus:text-gray-600 dark:hover:text-gray-300 dark:focus:text-gray-300 first:border-0 dark:border-gray-600 focus-visible:ring-2 dark:ring-offset-pink-800 focus:outline-none">
+                            <span class="block py-2 px-4" :class="{'font-bold': {{ state | safe }}}">{{ name | safe }}</span>
+                        </button>
+                    {% endfor %}
+                </div>
+
+
+            </div>
+        </li>
 
         {% block usericons %}
-            usericon
+            <li>
+                <button class="flex items-center justify-center w-8 h-8 text-gray-900 transition-colors duration-500 bg-gray-300 rounded-full hover:bg-gray-200 dark:text-gray-300 dark:bg-gray-700 dark:hover:bg-gray-800">
+                    {{ '/src/_site/_includes/_icons/svg/hero/solid/bell.svg' | svgContents("w-5 h-5 fill-current") | safe }}
+                </button>
+            </li>
+
+            <li>
+                <button class="flex items-center justify-center w-8 h-8 text-gray-900 transition-colors duration-500 bg-gray-300 rounded-full hover:bg-gray-200 dark:text-gray-300 dark:bg-gray-700 dark:hover:bg-gray-800">
+                    {{ '/src/_site/_includes/_icons/svg/hero/solid/shopping-bag.svg' | svgContents("w-5 h-5 fill-current") | safe }}
+                </button>
+            </li>
+
+            <li>
+                <button class="flex items-center justify-center w-10 h-10 transition-colors duration-500 bg-white dark:bg-black rounded-full hover:bg-gray-200 dark:text-gray-300 dark:bg-gray-700 dark:hover:bg-gray-800">
+                    <span class='overflow-hidden w-8 h-8 flex items-center justify-center rounded-full'>
+                        <img src="/images/userplaceholder.jpg" alt="ThisIsAnExtraLongUserName" aria-hidden="true" class="object-cover min-w-full min-h-full max-w-7xl ">
+                    </span>
+                </button>
+
+            </li>
         {% endblock %}
     </ul>
 </nav>

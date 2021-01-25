@@ -1,4 +1,9 @@
 {% extends "./site-header.njk" %}
+{% block logo %}
+    <a href="/" class="flex items-center flex-shrink-0">
+        {% include "_icons/stage.njk" %}
+    </a>
+{% endblock %}
 
 {% block nav %}
     {% include "_partials/site-navigation-anon.njk" %}

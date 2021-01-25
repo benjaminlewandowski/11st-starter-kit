@@ -9,43 +9,10 @@
     is-home
 {% endblock class %}
 
+{% block sidebar %}
+{% endblock %}
+
 {% block content %}
-    <section id="hero" class="relative flex flex-col p-24 mb-8 overflow-hidden bg-gray-700 shadow rounded-2xl">
-        <div class="relative z-10 text-gray-100 text-shadow-lg">
-            <header>
-                <h1 class="flex flex-col">
-                    <span class="order-2 text-5xl font-bold leading-normal tracking-tight text-transparent bg-clip-text bg-gradient-to-tr from-blue-700 to-blue-500 text-shadow-none">{{ intro.title }}</span>
-                    <span class="order-1 text-xl leading-normal tracking-tight">{{ intro.sub }}</span>
-                </h1>
-            </header>
-            <p class="mt-4 text-lg leading-normal">{{ intro.copy }}
-                <strong class="block">{{ intro.emphasised }}</strong>
-            </p>
-            <hr class="max-w-full my-6 shadow w-96">
-            <p class="flex space-x-4">
-                <a class="px-4 py-2 text-gray-100 bg-blue-800 border border-blue-900 rounded shadow min-w-16">Register</a>
-                <a class="px-4 py-2 text-blue-800 bg-gray-100 border border-gray-100 rounded shadow text-shadow-none min-w-16">Login</a>
-            </p>
-        </div>
-        <figure class="absolute top-0 left-0 z-0 flex items-end w-full h-full overflow-hidden blend-luminosity">
-            <img src="/images/home/hero.jpg" aria-hidden="true" class="object-cover min-w-full min-h-full max-w-7xl ">
-        </figure>
-    </section>
-
-    <section class="grid gap-6 p-6 mb-8 bg-gray-100 rounded-lg shadow" id="features">
-        <h2 class="sr-only">Features</h2>
-        <figure class="flex content-center p-2 bg-gray-700 rounded-lg">{{ '/src/_site/_includes/_icons/svg/hero/outline/video-camera.svg' | svgContents("stroke-current text-gray-100") | safe }}</figure>
-        <h3 class="py-2 text-2xl font-bold text-gray-700">Wir liefern dir Kultur</h3>
-        <p class="col-start-2">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.</p>
-        <figure class="flex content-center p-2 bg-gray-700 rounded-lg">{{ '/src/_site/_includes/_icons/svg/hero/outline/device-mobile.svg' | svgContents("stroke-current text-gray-100") | safe }}</figure>
-        <h3 class="py-2 text-2xl font-bold text-gray-700">Am Computer, auf deinem Telefon, auf deinem Tablet.</h3>
-        <p class="col-start-2">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.</p>
-        <figure class="flex content-center p-2 bg-gray-700 rounded-lg">{{ '/src/_site/_includes/_icons/svg/hero/outline/user-add.svg' | svgContents("stroke-current text-gray-100") | safe }}</figure>
-        <h3 class="py-2 text-2xl font-bold text-gray-700">Folge deinen Künstlern, Kollektiven sowie Veranstaltungsorten.</h3>
-        <p class="col-start-2">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.</p>
-        <figure class="flex content-center p-2 bg-gray-700 rounded-lg">{{ '/src/_site/_includes/_icons/svg/hero/outline/cash.svg' | svgContents("stroke-current text-gray-100") | safe }}</figure>
-        <h3 class="py-2 text-2xl font-bold text-gray-700">Verdiene Geld als Künstler.</h3>
-        <p class="col-start-2">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.</p>
-
-    </section>
+    {% include "./_index/hero.njk" %}
+    {% include "./_index/features.njk" %}
 {% endblock %}

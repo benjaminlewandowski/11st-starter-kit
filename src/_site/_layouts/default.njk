@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="nojs debug-screens {% block class %}{% endblock class %}" lang="en">
+<html class="nojs debug-screens {% block class %}{% endblock class %}"{% if site.lang %} lang="{{ site.lang }}"{% endif %}>
     <head>
         {% include "_partials/html-head.njk" %}
     </head>
@@ -9,7 +9,12 @@
             {% include "_partials/site-header.njk" %}
         {% endblock %}
 
-        <main class='container h-full' id="main-content" tabindex="-1">
+        <main class='container h-full' id="main-content" tabindex="-1" x-data="{ show: false }"
+              :class="{ 'sidebar-visible': show }">
+            {% block sidebar %}
+                {% include "_partials/site-sidebar.njk" %}
+            {% endblock %}
+
             {% block content %}
                 {{ content | safe }}
             {% endblock %}

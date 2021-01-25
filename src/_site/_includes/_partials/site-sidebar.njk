@@ -1,0 +1,29 @@
+{% block sidebar %}
+    <buttons
+        @click="show = !show" :class="{ 'active': show }" :aria-expanded="show ? 'true' : 'false'" class="z-20 flex absolute items-center z-20 justify-center w-8 h-8 text-gray-900 transition-colors duration-500 bg-gray-300 rounded-full hover:bg-gray-200 dark:text-gray-300 dark:bg-gray-700 dark:hover:bg-gray-800" id='sidebar-toggle' @click="open = true">
+        {{ '/src/_site/_includes/_icons/svg/hero/solid/x.svg' | svgContents("w-5 h-5 fill-current close") | safe }}
+        {{ '/src/_site/_includes/_icons/svg/hero/solid/menu-alt-2.svg' | svgContents("w-5 h-5 fill-current open") | safe }}
+    </buttons>
+
+    <aside id='sidebar' class='pr-8'
+           :class="{ 'fade-in': show }">
+        <header class='h-64 flex content-center justify-center flex-col text-center'>
+            <figure class="flex mb-4 mx-auto items-center justify-center w-32 h-32 transition-colors duration-500 bg-gradient-to-bl from-blue-700 to-blue-900 dark:bg-black rounded-full hover:bg-gray-200 dark:text-gray-300 dark:bg-gray-700 dark:hover:bg-gray-800" id='avatar'>
+                <picture class='overflow-hidden w-28 h-28 border-white border flex items-center justify-center rounded-full'>
+                    <img src="/images/userplaceholder.jpg" alt="ThisIsAnExtraLongUserName" aria-hidden="true" class="object-cover min-w-full min-h-full max-w-7xl ">
+                </picture>
+            </figure>
+            <span class='text-lg'>Welcome</span>
+            <strong class='text-lg font-bold'>ExtraLongUserName</strong>
+        </header>
+        <hr>
+        <ul>
+            <li></li>
+        </ul>
+        <hr>
+        <a href='/'>
+            <figure></figure>
+            <span>logout</span>
+        </a>
+    </aside>
+{% endblock %}
