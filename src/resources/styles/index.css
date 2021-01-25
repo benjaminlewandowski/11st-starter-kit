@@ -119,6 +119,8 @@
         border-style: solid;
 
         border-width: 2px;
+        border-right-width: 0;
+        border-left-width: 0;
 
         content: '';
     }

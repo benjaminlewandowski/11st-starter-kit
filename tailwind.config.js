@@ -7,6 +7,7 @@ module.exports = {
         './src/**/*.md',
         './src/**/*.njk',
         './src/**/*.js',
+        './src/**/*.css',
     ],
     darkMode: 'class',
     theme: {

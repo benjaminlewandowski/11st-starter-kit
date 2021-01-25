@@ -11,14 +11,6 @@ module.exports = {
                   require(`cssnano`)({
                       preset: 'default',
                   }),
-                  require('@fullhuman/postcss-purgecss')({
-                      content: [
-                          './src/**/*.njk',
-                          './src/**/*.js',
-                          './src/**/*.md',
-                          './src/resources/styles/*.css',
-                      ],
-                  }),
                   require('postcss-sort-media-queries'),
               ]
             : []),
