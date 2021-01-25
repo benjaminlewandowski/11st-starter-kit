@@ -130,6 +130,7 @@
         "autoprefixer": "^10.2.3",
         "babel-eslint": "^10.1.0",
         "browserslist": "^4.16.1",
+        "cssnano": "^4.1.10",
         "eleventy-plugin-lazyimages": "^2.1.0",
         "eleventy-plugin-seo": "^0.5.1",
         "eleventy-plugin-svg-contents": "^0.7.0",
@@ -175,7 +176,7 @@
         "workbox-cli": "^6.0.2"
     },
     "dependencies": {
-        "alpinejs": "^2.8.0",
-        "@ryangjchandler/spruce": "^2.5.3"
+        "@ryangjchandler/spruce": "^2.5.3",
+        "alpinejs": "^2.8.0"
     }
 }
