@@ -16,6 +16,7 @@ module.exports = {
                           './src/**/*.njk',
                           './src/**/*.js',
                           './src/**/*.md',
+                          './src/resources/styles/*.css',
                       ],
                   }),
                   require('postcss-sort-media-queries'),
