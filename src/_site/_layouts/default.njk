@@ -4,7 +4,7 @@
         {% include "_partials/html-head.njk" %}
     </head>
 
-    <body id="js-fade" class="min-h-screen antialiased leading-normal text-gray-900 bg-gray-300 loading dark:text-gray-300 dark:bg-gray-700 after:fixed after:bottom-0 after:w-full after:h-16 before:z-10 before:empty-content " data-env="{{ node.env }}" x-data="{ showsidebar: false }">
+    <body id="js-fade" class="min-h-screen antialiased leading-normal text-neutral-900 bg-neutral-300 loading dark:text-neutral-300 dark:bg-neutral-700 after:fixed after:bottom-0 after:w-full after:h-16 before:z-10 before:empty-content " data-env="{{ node.env }}" x-data="{ showsidebar: false }">
         <script>
             document
                 .getElementById("js-fade")
@@ -17,7 +17,7 @@
         {% endblock %}
 
         {% block headlinewrapper %}
-            <header id="headline" class="pt-16 -mb-16 shadow-xl h-80 bg-gradient-to-r from-blue-900 to-gray-400">
+            <header id="headline" class="pt-16 -mb-16 shadow-xl h-80 bg-gradient-to-r from-primary-900 to-neutral-400">
                 {% block Headline %}
                     <h1 class="sr-only">Explore</h1>
                 {% endblock %}

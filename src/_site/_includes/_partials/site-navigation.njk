@@ -7,7 +7,7 @@
         {% endblock %}
 
         <li class="relative ml-2" id="js-colorschemeswitcher">
-            <button @click="showPref = !showPref" @click.away="showPref = false" x-bind:aria-label="showPref ? 'Menu sluiten' : 'Menu openen'" x-bind:aria-expanded="showPref" class="flex items-center justify-center w-8 h-8 text-gray-900 transition-colors duration-500 bg-gray-300 rounded-full hover:bg-gray-200 dark:text-gray-300 dark:bg-gray-700 dark:hover:bg-gray-800">
+            <button @click="showPref = !showPref" @click.away="showPref = false" x-bind:aria-label="showPref ? 'Menu sluiten' : 'Menu openen'" x-bind:aria-expanded="showPref" class="flex items-center justify-center w-8 h-8 text-neutral-900 transition-colors duration-500 bg-neutral-300 rounded-full hover:bg-neutral-200 dark:text-neutral-300 dark:bg-neutral-700 dark:hover:bg-neutral-800">
                 {{ '/src/_site/_includes/_icons/svg/hero/solid/sun.svg' | svgContents("flex dark:hidden w-5 h-5 fill-current") | safe }}
                 {{ '/src/_site/_includes/_icons/svg/hero/solid/moon.svg' | svgContents("hidden dark:flex w-5 h-5 fill-current") | safe }}
             </button>
@@ -62,10 +62,10 @@
                     ]
                 ] %}
 
-                <div class="bg-white border border-gray-300 rounded-lg dark:bg-gray-800 dark:border-gray-600">
+                <div class="bg-white border border-neutral-300 rounded-lg dark:bg-neutral-800 dark:border-neutral-600">
                     {% for name, value,
                     state in options %}
-                        <button x-on:click="preference = '{{ value }}'" x-bind:tabindex=" showPref ? '3' : '-1' " class="relative block w-full font-medium text-left text-gray-500 border-t-2 border-gray-300 rounded cursor-pointer ring-pink-500 ring-offset-4 ring-offset-pink-200 dark:text-gray-400 hover:text-gray-600 focus:text-gray-600 dark:hover:text-gray-300 dark:focus:text-gray-300 first:border-0 dark:border-gray-600 focus-visible:ring-2 dark:ring-offset-pink-800 focus:outline-none">
+                        <button x-on:click="preference = '{{ value }}'" x-bind:tabindex=" showPref ? '3' : '-1' " class="relative block w-full font-medium text-left text-neutral-500 border-t-2 border-neutral-300 rounded cursor-pointer ring-pink-500 ring-offset-4 ring-offset-pink-200 dark:text-neutral-400 hover:text-neutral-600 focus:text-neutral-600 dark:hover:text-neutral-300 dark:focus:text-neutral-300 first:border-0 dark:border-neutral-600 focus-visible:ring-2 dark:ring-offset-pink-800 focus:outline-none">
                             <span class="block px-4 py-2" :class="{'font-bold': {{ state | safe }}}">{{ name | safe }}</span>
                         </button>
                     {% endfor %}
@@ -76,19 +76,19 @@
 
         {% block usericons %}
             <li class="hidden md:flex">
-                <button class="flex items-center justify-center w-8 h-8 text-gray-900 transition-colors duration-500 bg-gray-300 rounded-full hover:bg-gray-200 dark:text-gray-300 dark:bg-gray-700 dark:hover:bg-gray-800">
+                <button class="flex items-center justify-center w-8 h-8 text-neutral-900 transition-colors duration-500 bg-neutral-300 rounded-full hover:bg-neutral-200 dark:text-neutral-300 dark:bg-neutral-700 dark:hover:bg-neutral-800">
                     {{ '/src/_site/_includes/_icons/svg/hero/solid/bell.svg' | svgContents("w-5 h-5 fill-current") | safe }}
                 </button>
             </li>
 
             <li class="hidden ml-0 md:flex">
-                <button class="flex items-center justify-center w-8 h-8 text-gray-900 transition-colors duration-500 bg-gray-300 rounded-full hover:bg-gray-200 dark:text-gray-300 dark:bg-gray-700 dark:hover:bg-gray-800">
+                <button class="flex items-center justify-center w-8 h-8 text-neutral-900 transition-colors duration-500 bg-neutral-300 rounded-full hover:bg-neutral-200 dark:text-neutral-300 dark:bg-neutral-700 dark:hover:bg-neutral-800">
                     {{ '/src/_site/_includes/_icons/svg/hero/solid/shopping-bag.svg' | svgContents("w-5 h-5 fill-current") | safe }}
                 </button>
             </li>
 
             <li>
-                <button class="flex items-center justify-center w-10 h-10 transition-colors duration-500 bg-white rounded-full hover:bg-gray-200 dark:text-gray-300 dark:bg-gray-700 dark:hover:bg-gray-800">
+                <button class="flex items-center justify-center w-10 h-10 transition-colors duration-500 bg-white rounded-full hover:bg-neutral-200 dark:text-neutral-300 dark:bg-neutral-700 dark:hover:bg-neutral-800">
                     <span class='flex items-center justify-center w-8 h-8 overflow-hidden rounded-full'>
                         <img src="/media/images/userplaceholder.jpg" alt="ThisIsAnExtraLongUserName" aria-hidden="true" class="object-cover min-w-full min-h-full max-w-7xl ">
                     </span>

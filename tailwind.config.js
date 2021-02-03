@@ -17,8 +17,9 @@ module.exports = {
             current: 'currentColor',
             black: colors.black,
             white: colors.white,
-            gray: colors.blueGray,
-            blue: colors.lightBlue,
+            neutral: colors.blueGray,
+            primary: colors.lightBlue,
+            secondary: colors.amber,
         },
         container: {
             center: true,

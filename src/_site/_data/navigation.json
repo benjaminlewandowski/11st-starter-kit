@@ -10,12 +10,12 @@
         {
             "text": "Register",
             "url": "/register",
-            "classes": "bg-blue-800 border-blue-900 text-gray-100"
+            "classes": "bg-primary-800 border-primary-900 text-neutral-100"
         },
         {
             "text": "Login",
             "url": "/login",
-            "classes": "text-gray-700 border-gray-700"
+            "classes": "text-neutral-700 border-neutral-700"
         }
     ]
 }

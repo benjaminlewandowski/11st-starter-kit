@@ -1,11 +1,11 @@
-<header id="site_header" class="container fixed z-50 grid h-16 grid-cols-2 gap-2 px-8 py-3 before:z-40 before:bg-gray-100 before:dark:bg-gray-900 lg:gap-4 xl:gap-6 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 3xl:grid-cols-6 before:empty-content before:bg-gray before:border-gray-100 before:shadow dark:before:bg-gray-900 dark:before:border-gray-900 before:fixed before:h-24 before:top-0 before:block">
+<header id="site_header" class="container fixed z-50 grid h-16 grid-cols-2 gap-2 px-8 py-3 before:z-40 before:bg-neutral-100 before:dark:bg-neutral-900 lg:gap-4 xl:gap-6 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 3xl:grid-cols-6 before:empty-content before:bg-gray before:border-neutral-100 before:shadow dark:before:bg-neutral-900 dark:before:border-neutral-900 before:fixed before:h-24 before:top-0 before:block">
     <div class="flex items-center justify-between">
         {% block logo %}
             <a href="/feed" class="flex items-center flex-shrink-0">{% include "_icons/stage.njk" %}</a>
         {% endblock %}
 
         {% block sidebartoggle %}
-            <button @click="showsidebar = !showsidebar" :class="{ 'active': showsidebar }" :aria-expanded="showsidebar ? 'true' : 'false'" class="z-20 flex items-center justify-center w-8 h-8 text-gray-900 transition-colors duration-500 bg-gray-300 rounded-full hover:bg-gray-200 dark:text-gray-300 dark:bg-gray-700 dark:hover:bg-gray-800" id='sidebar-toggle'>
+            <button @click="showsidebar = !showsidebar" :class="{ 'active': showsidebar }" :aria-expanded="showsidebar ? 'true' : 'false'" class="z-20 flex items-center justify-center w-8 h-8 text-neutral-900 transition-colors duration-500 bg-neutral-300 rounded-full hover:bg-neutral-200 dark:text-neutral-300 dark:bg-neutral-700 dark:hover:bg-neutral-800" id='sidebar-toggle'>
                 {{ '/src/_site/_includes/_icons/svg/hero/solid/x.svg' | svgContents("w-5 h-5 fill-current close") | safe }}
                 {{ '/src/_site/_includes/_icons/svg/hero/solid/menu-alt-2.svg' | svgContents("w-5 h-5 fill-current open") | safe }}
             </button>

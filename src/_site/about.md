@@ -8,7 +8,7 @@ meta:
 intro:
     title: 'Get Yours'
     desc:
-        'Clone and deploy your own <span class="font-semibold text-gray-900">11st
+        'Clone and deploy your own <span class="font-semibold text-neutral-900">11st
         Starter-Kit</span> starter template.'
 ---
 
