@@ -25,29 +25,6 @@
         font-size: 125%;
     }
 
-    &.debug-screens {
-        &::before,
-        &::after {
-            @apply fixed left-0 z-50 px-2 py-1 font-sans text-xs leading-none text-white bg-black shadow-sm;
-        }
-
-        &::before {
-            bottom: 0;
-        }
-
-        &::after {
-            bottom: 1.3333333rem;
-
-            content: 'light';
-        }
-
-        &.dark {
-            &::after {
-                content: 'dark';
-            }
-        }
-    }
-
     &.nojs {
         & [id^='js'] {
             display: none !important;
@@ -70,16 +47,10 @@
 }
 
 [disabled] {
-    opacity: 0.95;
-
     pointer-events: none;
 }
 
 .js {
-    & #js-fade {
-        transition: opacity 0.25s linear;
-    }
-
     & .loading {
         opacity: 0;
     }
