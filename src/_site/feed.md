@@ -1,5 +1,5 @@
 ---
-layout: 'default'
+layout: 'feed'
 title: 'Home'
 meta:
     desc:

@@ -1,5 +1,6 @@
 const defaultTheme = require('tailwindcss/defaultTheme');
 const colors = require('tailwindcss/colors');
+const plugin = require('tailwindcss/plugin');
 
 module.exports = {
     purge: [
@@ -28,6 +29,7 @@ module.exports = {
             lg: '1024px',
             xl: '1280px',
             '2xl': '1536px',
+            '3xl': '1920px',
         },
         minWidth: {
             min: 'min-content',
@@ -82,8 +84,81 @@ module.exports = {
     },
     variants: {
         extend: {
-            inset: ['focus'],
             display: ['dark'],
+            textColor: [
+                'dark',
+                'before',
+                'after',
+                'hover_before',
+                'hover_after',
+            ],
+            backgroundColor: [
+                'dark',
+                'before',
+                'after',
+                'hover_before',
+                'hover_after',
+            ],
+            height: ['dark', 'before', 'after', 'hover_before', 'hover_after'],
+            width: ['dark', 'before', 'after', 'hover_before', 'hover_after'],
+            boxShadow: [
+                'dark',
+                'before',
+                'after',
+                'hover_before',
+                'hover_after',
+            ],
+            position: [
+                'dark',
+                'before',
+                'after',
+                'hover_before',
+                'hover_after',
+            ],
+            inset: [
+                'dark',
+                'focus',
+                'before',
+                'after',
+                'hover_before',
+                'hover_after',
+            ],
+            padding: [
+                'dark',
+                'focus',
+                'before',
+                'after',
+                'hover_before',
+                'hover_after',
+            ],
+            margin: [
+                'dark',
+                'focus',
+                'before',
+                'after',
+                'hover_before',
+                'hover_after',
+            ],
+            zIndex: ['before', 'after', 'hover_before', 'hover_after'],
+            borderRadius: ['before', 'after', 'hover_before', 'hover_after'],
+            transitionDuration: [
+                'before',
+                'after',
+                'hover_before',
+                'hover_after',
+            ],
+            transitionTimingFunction: [
+                'before',
+                'after',
+                'hover_before',
+                'hover_after',
+            ],
+            transitionProperty: [
+                'before',
+                'after',
+                'hover_before',
+                'hover_after',
+            ],
         },
     },
     plugins: [
@@ -96,5 +171,16 @@ module.exports = {
         require('tailwindcss-skip-link'),
         require('tailwindcss-blend-mode')(),
         require('tailwindcss-textshadow'),
+        require('tailwindcss-pseudo-elements'),
+        plugin(function ({ addUtilities }) {
+            addUtilities(
+                {
+                    '.empty-content': {
+                        content: "''",
+                    },
+                },
+                ['before', 'after', 'hover_before', 'hover_after']
+            );
+        }),
     ],
 };

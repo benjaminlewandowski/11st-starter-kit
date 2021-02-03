@@ -1,12 +1,12 @@
-<section id="hero" class="relative flex flex-col p-12 sm:p-18 md:p-24 mb-8 overflow-hidden bg-gray-700 shadow rounded-2xl">
+<section id="hero" class="relative flex flex-col p-12 mb-8 overflow-hidden bg-gray-700 shadow sm:p-18 md:p-24 rounded-2xl">
     <div class="relative z-10 text-gray-100 text-shadow-lg">
         <header>
             <h1 class="flex flex-col">
-                <span class="order-2 text-3xl sm:text-4xl md:text-5xl font-bold leading-normal tracking-tight text-transparent bg-clip-text bg-gradient-to-tr from-blue-700 to-blue-500 text-shadow-none">{{ intro.title }}</span>
-                <span class="order-1 mb-2 text-lg sm:text-xl leading-normal tracking-tight">{{ intro.sub }}</span>
+                <span class="order-2 text-3xl font-bold leading-normal tracking-tight text-transparent sm:text-4xl md:text-5xl sm:leading-normal md:leading-normal bg-clip-text bg-gradient-to-tr from-blue-700 to-blue-500 text-shadow-none">{{ intro.title }}</span>
+                <span class="order-1 mb-2 text-lg leading-normal tracking-tight sm:text-xl sm:leading-normal ">{{ intro.sub }}</span>
             </h1>
         </header>
-        <p class="mt-4 sm:text-lg leading-normal">{{ intro.copy }}
+        <p class="mt-4 leading-normal sm:text-lg">{{ intro.copy }}
             <strong class="block">{{ intro.emphasised }}</strong>
         </p>
         <hr class="max-w-full my-6 shadow w-96">
@@ -15,7 +15,4 @@
             <a title="Login" class="px-4 py-2 text-blue-800 bg-gray-100 border border-gray-100 rounded shadow text-shadow-none min-w-16">Login</a>
         </p>
     </div>
-    <figure class="absolute top-0 left-0 z-0 flex items-end w-full h-full overflow-hidden blend-luminosity">
-        <img src="/images/home/hero.jpg" alt="Foto des Sitzbereiches von einem Theater" aria-hidden="true" class="object-cover min-w-full min-h-full max-w-7xl ">
-    </figure>
 </section>

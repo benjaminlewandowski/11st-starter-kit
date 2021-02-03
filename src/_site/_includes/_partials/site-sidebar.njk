@@ -1,16 +1,9 @@
 {% block sidebar %}
-    <buttons
-        @click="show = !show" :class="{ 'active': show }" :aria-expanded="show ? 'true' : 'false'" class="z-20 flex absolute items-center z-20 justify-center w-8 h-8 text-gray-900 transition-colors duration-500 bg-gray-300 rounded-full hover:bg-gray-200 dark:text-gray-300 dark:bg-gray-700 dark:hover:bg-gray-800" id='sidebar-toggle' @click="open = true">
-        {{ '/src/_site/_includes/_icons/svg/hero/solid/x.svg' | svgContents("w-5 h-5 fill-current close") | safe }}
-        {{ '/src/_site/_includes/_icons/svg/hero/solid/menu-alt-2.svg' | svgContents("w-5 h-5 fill-current open") | safe }}
-    </buttons>
-
-    <aside id='sidebar' class='pr-8'
-           :class="{ 'fade-in': show }">
-        <header class='h-64 flex content-center justify-center flex-col text-center'>
-            <figure class="flex mb-4 mx-auto items-center justify-center w-32 h-32 transition-colors duration-500 bg-gradient-to-bl from-blue-700 to-blue-900 dark:bg-black rounded-full hover:bg-gray-200 dark:text-gray-300 dark:bg-gray-700 dark:hover:bg-gray-800" id='avatar'>
-                <picture class='overflow-hidden w-28 h-28 border-white border flex items-center justify-center rounded-full'>
-                    <img src="/images/userplaceholder.jpg" alt="ThisIsAnExtraLongUserName" aria-hidden="true" class="object-cover min-w-full min-h-full max-w-7xl ">
+    <aside id='sidebar' class='z-20 col-span-2 pr-8 opacity-0 before:bg-gray-50 dark:before:bg-gray-900 before:empty-content bg-gray-50 dark:gray-900 sm:col-span-1 before:absolute before:transition-all before:block before:duration-500 before:ease-in-out before:w-screen before:h-full before:right-full' :class="{ 'fade-in': showsidebar }">
+        <header class='flex flex-col content-center h-64 pt-8 text-center jus tify-center'>
+            <figure class="flex items-center justify-center w-32 h-32 mx-auto mb-4 transition-colors duration-500 rounded-full bg-gradient-to-bl from-blue-700 to-blue-900 hover:bg-gray-200 dark:text-gray-300 dark:bg-gray-700 dark:hover:bg-gray-800" id='avatar'>
+                <picture class='flex items-center justify-center overflow-hidden border border-white rounded-full w-28 h-28'>
+                    <img src="/media/images/userplaceholder.jpg" alt="ThisIsAnExtraLongUserName" aria-hidden="true" class="object-cover min-w-full min-h-full max-w-7xl ">
                 </picture>
             </figure>
             <span class='text-lg'>Welcome</span>

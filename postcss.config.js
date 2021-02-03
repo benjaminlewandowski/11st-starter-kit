@@ -4,7 +4,6 @@ module.exports = {
         require('postcss-sorting'),
         require('postcss-utilities'),
         require('tailwindcss'),
-        require('postcss-nested'),
         require('postcss-preset-env')({ stage: 1 }),
         ...(process.env.NODE_ENV === 'production'
             ? [

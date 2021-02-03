@@ -9,41 +9,86 @@
     is-register
 {% endblock class %}
 
-{% block sidebar %}
+{% block headlinewrapper %}
+    <header id="headline" class="pt-16 -mb-56 bg-transparent h-80">
+        {% block Headline %}
+            <h1 class="sr-only">Register</h1>
+        {% endblock %}
+    </header>
 {% endblock %}
 
+{% block sidebar %}{% endblock %}
+
 {% block content %}
-    <article>
-        <h1>
-            Sign in</h1>
-        <p>
-            Register to manage your account
-        </p>
-        <form action="/feed">
-            <div>
-                <input type="text" placeholder="First Name">
-                <input type="text" placeholder="Last Name">
+
+    <form action="/feed" class="max-w-xl mx-auto md:p-6" x-data="{ showpassword: false }">
+        <h1 class="block mb-8 text-xl font-bold lg:text-3xl">Register</h1>
+        <fieldset class="flex flex-wrap justify-between mb-6">
+            <legend class="w-full mb-2 text-sm font-bold text-gray-700">Name</legend>
+
+            <label class="w-full mb-2 md:mr-2 md:w-auto">
+                <input type="text" placeholder="First Name" class="w-full max-w-full text-gray-700 bg-gray-200 border-gray-700 rounded md:w-64">
+                <span>First Name</span>
+            </label>
+
+            <label class="w-full mb-2 md:w-auto">
+                <input type="text" placeholder="Last Name" class="w-full max-w-full text-gray-700 bg-gray-200 border-gray-700 rounded md:w-64">
+                <span>Last Name</span>
+            </label>
+        </fieldset>
+
+        <fieldset class="flex flex-wrap justify-between mb-6">
+            <div class="w-full mb-2 md:mr-2 md:w-auto">
+                <legend class="mb-2 text-sm font-bold text-gray-700">E-Mail</legend>
+                <label class="w-full md:w-auto">
+                    <input type="email" class="w-full max-w-full text-gray-700 bg-gray-200 border-gray-700 rounded md:w-64" placeholder="example@mydomain.com">
+                    <span>E-Mail</span>
+                </label>
             </div>
-            <input type="text" placeholder="Email">
-            <input type="text" placeholder="Password">
-            <input type="text" placeholder="Confirm Password">
-            <div>
-                <div>
-                    <input type="checkbox" id="agree" checked="">
-                    <label for="agree">I Agree</label>
-                </div>
-                <a href="#">
-                    Terms and Conditions</a>
+
+            <div class="w-full mb-2 md:w-auto">
+                <legend class="mb-2 text-sm font-bold text-gray-700">Username</legend>
+                <label class="w-full md:w-auto">
+                    <input type="text" placeholder="Username" class="w-full max-w-full text-gray-700 bg-gray-200 border-gray-700 rounded md:w-64">
+                    <span>Username</span>
+                </label>
             </div>
-            <button type="submit">Login</button>
-            <div>
-                <p>
-                    Do you have an account?
-                    <a href="/login">
-                        Login
-                    </a>
+        </fieldset>
+
+        <fieldset class="flex flex-wrap justify-between mb-6">
+            <header class="flex justify-between w-full mb-2">
+                <p class="flex justify-between w-full max-w-full md:w-64 ">
+                    <span class="text-sm font-bold text-gray-700">Password</span>
+                    <button type="button" @click="showpassword = !showpassword">
+                        {{ '/src/_site/_includes/_icons/svg/hero/solid/eye.svg' | svgContents("stroke-current text-gray-700 w-4 h-4") | safe }}
+                        <span class="sr-only">Show Password</span>
+                    </button>
                 </p>
-            </div>
-        </form>
-    </article>
+            </header>
+            <label class="w-full mb-2 md:mr-2 md:w-auto">
+                <input type="password" placeholder="Your Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" minlength="8" required="required" :type="showpassword ? 'text' : 'password'" class="w-full max-w-full text-gray-700 bg-gray-200 border-gray-700 rounded md:w-64">
+                <span class="">Your Password (min. 8 characters with at least 1 Upper Case, 1 lower case, and 1 numeric character)</span>
+            </label>
+            <label class="w-full mb-2 md:w-auto">
+                <input type="password" placeholder="Confirm Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" minlength="8" required="required" :type="showpassword ? 'text' : 'password'" class="w-full max-w-full text-gray-700 bg-gray-200 border-gray-700 rounded md:w-64">
+                <span>Confirm Password</span>
+            </label>
+        </fieldset>
+
+        <fieldset class="mb-8">
+            <label class="w-full md:w-auto">
+                <input type="checkbox" checked="" required="required">
+                <span>I Agree</span>
+            </label>
+            <a href="#">Terms and Conditions</a>
+        </fieldset>
+    </div>
+    <p class="justify-end block col-span-1 col-start-7 row-start-5 mb-8 text-right bg-pink-500">
+        <button type="submit" class="px-4 py-2 text-gray-700 border border-gray-700 rounded min-w-16">Register</button>
+    </p>
+    <p class="col-span-6 col-start-2 row-start-6 bg-indigo-500">
+        <span>Do you have an account?</span>
+        <a class="font-bold" href="/login">Login</a>
+    </p>
+</form>
 {% endblock %}

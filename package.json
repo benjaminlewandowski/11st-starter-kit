@@ -31,7 +31,11 @@
     "browserslist": [
         "defaults",
         "maintained node versions",
-        "> 5%"
+        "> 5%",
+        "Firefox ESR",
+        "not dead",
+        "not ie > 0",
+        "not op_mini > 0"
     ],
     "husky": {
         "hooks": {
@@ -96,7 +100,7 @@
         "*.{js,html}": "eslint --fix"
     },
     "scripts": {
-        "clean": "rimraf src/_build",
+        "clean": "rimraf _build",
         "serve": "serve --no-clipboard --listen 8080 dist",
         "dev": "NODE_ENV=development run-s clean dev:*",
         "dev:snowpack": "snowpack dev",

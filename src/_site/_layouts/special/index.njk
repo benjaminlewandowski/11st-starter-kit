@@ -9,10 +9,19 @@
     is-home
 {% endblock class %}
 
-{% block sidebar %}
+{% block sidebar %}{% endblock %}
+
+{% block headlinewrapper %}
+    <header id="headline" class="pt-16 -mb-56 shadow-xl h-80 bg-gradient-to-r from-blue-900 to-gray-400">
+        {% block Headline %}
+            <h1 class="sr-only">Stage</h1>
+        {% endblock %}
+    </header>
 {% endblock %}
 
 {% block content %}
     {% include "./_index/hero.njk" %}
     {% include "./_index/features.njk" %}
+    {% include "./_index/cal.njk" %}
+    {% include "./_index/reviews.njk" %}
 {% endblock %}

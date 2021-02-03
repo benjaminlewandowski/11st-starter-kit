@@ -1,0 +1,81 @@
+<section class="grid grid-cols-1 gap-4 auto-rows-auto xl:gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 3xl:grid-cols-7" x-data="{ category: 'all' }">
+    <aside class="sticky h-full col-span-1 p-2 transition-all duration-200 ease-linear bg-white rounded shadow top-20 md:p-4 hover:bg-gray-50 hover:shadow-lg">
+        <header class="sr-only">Filter</header>
+        <p class="block mb-2 text-lg font-medium">Tags:</p>
+        <ul class="sort-links">
+            <li class="link-item">
+                <a href="#" @click.prevent="category = 'all'" :class="{ 'active' : category === 'all' }">All</a>
+            </li>
+            <li class="link-item">
+                <a href="#" @click.prevent="category = 'music'" :class="{ 'active' : category === 'music' }">Cats</a>
+            </li>
+            <li class="link-item">
+                <a href="#" @click.prevent="category = 'performance'" :class="{ 'active' : category === 'performance' }">Dogs</a>
+            </li>
+        </ul>
+    </aside>
+    <div class="grid grid-cols-1 col-span-1 gap-2 lg:gap-4 xl:gap-6 md:col-span-2 lg:col-span-3 xl:col-span-4 2xl:col-span-5 3xl:col-span-6 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 3xl:grid-cols-5">
+        {% for i in range(0, 8) -%}
+            <article x-show="category === 'performance' || category === 'all'" class="col-span-1 flex flex-col transition-all duration-200 ease-linear bg-white rounded shadow hover:bg-gray-50 hover:shadow-lg" data-category="performance">
+                <header>
+                    <img class="rounded-t shadow" src="/media/images/placeholder.png">
+                    <h2 class="p-4 text-xl font-medium">Title</h2>
+                </header>
+
+                <div class="px-4 mb-auto text-sm">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum vel similique explicabo provident? Eaque voluptatem ut natus facere corporis ullam expedita dolorem? Esse expedita temporibus asperiores illum dolorem necessitatibus quidem?</p>
+                </div>
+
+                <footer class="px-4">
+                    <ul class="flex pt-4 pb-2 mb-2 space-x-2 overflow-x-auto overflow-y-hidden flex-nowrap">
+                        <li class="flex flex-col text-sm italic bg-gray-200 rounded-full shadow">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 24 24" stroke="currentColor" class="h-4 text-sm">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                            </svg>
+
+                            <time datetime=" 2017-02-14" class='p-2 text-sm italic whitespace-nowrap'>2017-02-14</time>
+                        </li>
+                        <li class="flex bg-gray-200 rounded-full shadow">
+                            <button class='p-2 text-sm font-bold whitespace-nowrap' @click.prevent="category = 'performance'">
+                                <figure>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" />
+                                    </svg>
+                                    <figcaption>performance</figcaption>
+                                </figure>
+                            </button>
+                        </li>
+                    </ul>
+                </footer>
+            </article>
+        {%- endfor %}
+        {% for i in range(0, 8) -%}
+            <article x-show="category === 'music' || category === 'all'" class="col-span-1 flex flex-col transition-all duration-200 ease-linear bg-white rounded shadow hover:bg-gray-50 hover:shadow-lg" data-category="music">
+                <header>
+                    <img class="rounded-t shadow" src="/media/images/placeholder.png">
+                    <h2 class="p-4 text-xl font-medium">Title</h2>
+                </header>
+
+                <div class="px-4 mb-auto text-sm">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum vel similique explicabo provident? Eaque voluptatem ut natus facere corporis ullam expedita dolorem? Esse expedita temporibus asperiores illum dolorem necessitatibus quidem?</p>
+                </div>
+
+                <footer class="px-4">
+                    <ul class="flex pt-4 pb-2 mb-2 space-x-2 overflow-x-auto overflow-y-hidden flex-nowrap">
+                        <li class="flex flex-col text-sm italic bg-gray-200 rounded-full shadow">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                            </svg>
+
+                            <time datetime=" 2017-02-14" class='p-2 text-sm italic whitespace-nowrap'>2017-02-14</time>
+                        </li>
+
+                        <li class="flex bg-gray-200 rounded-full shadow">
+                            <button href='#' class='p-2 text-sm font-bold whitespace-nowrap' @click.prevent="category = 'music'">#music</button>
+                        </li>
+                    </ul>
+                </footer>
+            </article>
+        {%- endfor %}
+    </div>
+</section>

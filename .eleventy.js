@@ -22,8 +22,8 @@ module.exports = function (config) {
 
     // Static assets to pass through
     config.addPassthroughCopy({ './src/fonts': 'fonts' });
-    config.addPassthroughCopy({ './src/media/images': 'images' });
-    config.addPassthroughCopy({ './src/media/video': 'video' });
+    config.addPassthroughCopy({ './src/media/images': 'media/images' });
+    config.addPassthroughCopy({ './src/media/video': 'media/video' });
     config.addPassthroughCopy({ './src/static': '/' });
 
     // WatchTargets
@@ -84,18 +84,18 @@ module.exports = function (config) {
     config.addLayoutAlias('default', 'default.njk');
     config.addLayoutAlias('post', 'post.njk');
     config.addLayoutAlias('page', 'page.njk');
-    config.addLayoutAlias('listing', 'listing.njk');
 
     // Special Layouts
     config.addLayoutAlias('index', 'special/index.njk');
     config.addLayoutAlias('login', 'special/login.njk');
     config.addLayoutAlias('register', 'special/register.njk');
     config.addLayoutAlias('404', 'special/404.njk');
+    config.addLayoutAlias('feed', 'special/feed.njk');
 
     return {
         dir: {
             input: 'src/_site',
-            output: 'src/_build',
+            output: '_build',
             data: '_data',
             includes: '_includes',
             layouts: '_layouts',

@@ -9,37 +9,65 @@
     is-login
 {% endblock class %}
 
-{% block sidebar %}
+{% block headlinewrapper %}
+    <header id="headline" class="pt-16 -mb-56 bg-transparent h-80">
+        {% block Headline %}
+            <h1 class="sr-only">Login</h1>
+        {% endblock %}
+    </header>
 {% endblock %}
 
+{% block sidebar %}{% endblock %}
+
 {% block content %}
-    <article class="">
-        <h1>
-            Log in</h1>
-        <p>
-            Email or Username</p>
-        <form action="/feed">
-            <input type="text" placeholder="example@mydomain.com" ">
-            <input type="password" placeholder="***********">
-            <div class="flex justify-between my-4">
-                <div class="checkbox">
-                    <input type="checkbox" id="chekcbox1" checked="">
-                    <label for="chekcbox1">
-                        <span class="checkbox-icon"></span>Remember Me</label>
-                </div>
-                <a href="#">
-                    Forgot Your Password?
-                </a>
-            </div>
-            <button type="submit">Login</button>
-            <div>
-                <p>
-                    Not registered?
-                    <a href="/register">
-                        Create a account
-                    </a>
+    <form action="/feed" class="max-w-xl mx-auto md:p-6" x-data="{ showpassword: false }">
+        <h1 class="block mb-8 text-xl font-bold lg:text-3xl">Log in</h1>
+        <fieldset>
+            <legend class="mb-2 text-sm font-bold text-gray-700">E-Mail or Username</legend>
+
+            <label class="flex flex-col mb-8">
+                <input type="email" class="text-gray-700 bg-gray-200 border-gray-700 rounded" placeholder="example@mydomain.com">
+                <span class="">example@mydomain.com</span>
+            </label>
+        </fieldset>
+        <fieldset>
+            <header class="flex justify-between w-full mb-2">
+                <p class="flex justify-between w-full max-w-full ">
+                    <span class="text-sm font-bold text-gray-700">Password</span>
+                    <button type="button" @click="showpassword = !showpassword">
+                        {{ '/src/_site/_includes/_icons/svg/hero/solid/eye.svg' | svgContents("stroke-current text-gray-700 w-4 h-4") | safe }}
+                        <span class="sr-only">Show Password</span>
+                    </button>
                 </p>
-            </div>
-        </form>
-    </article>
+            </header>
+
+            <label class="flex flex-col mb-8">
+                <input type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" minlength="8" required="required" placeholder="Your Password" :type="showpassword ? 'text' : 'password'" class="text-gray-700 bg-gray-200 border-gray-700 rounded">
+                <span class="">Your Password (min. 8 characters with at least 1 Upper Case, 1 lower case, and 1 numeric character)</span>
+            </label>
+        </fieldset>
+
+        <fieldset class="flex justify-between mb-8">
+            <label>
+                <input type="checkbox" checked="">
+                <span>Remember Me</span>
+            </label>
+
+            <a href="/resetpassword">
+                Forgot Your Password?
+            </a>
+        </fieldset>
+
+        <p class="justify-end block col-span-1 col-start-7 row-start-5 mb-8 text-right bg-pink-500">
+            <button type="submit" class="px-4 py-2 text-gray-700 border border-gray-700 rounded min-w-16">Login</button>
+        </p>
+
+        <p class="col-span-6 col-start-2 row-start-6 bg-indigo-500">
+            <span>Not registered?</span>
+
+            <a href="/register">
+                <strong>Create a account</strong>
+            </a>
+        </p>
+    </form>
 {% endblock %}

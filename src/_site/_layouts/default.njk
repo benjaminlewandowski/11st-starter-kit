@@ -1,16 +1,30 @@
 <!DOCTYPE html>
-<html class="nojs debug-screens {% block class %}dark{% endblock class %}"{% if site.lang %} lang="{{ site.lang }}"{% endif %}>
+<html class="nojs {% if node.env == 'development' %} debug-screens {% endif %} {% block class %}dark{% endblock class %}" {% if site.lang %} lang="{{ site.lang }}" {% endif %}>
     <head>
         {% include "_partials/html-head.njk" %}
     </head>
 
-    <body class="min-h-screen antialiased leading-normal text-gray-900 bg-gray-300 fade loading dark:text-gray-300 dark:bg-gray-700" data-env="{{ node.env }}">
+    <body id="js-fade" class="min-h-screen antialiased leading-normal text-gray-900 bg-gray-300 loading dark:text-gray-300 dark:bg-gray-700 after:fixed after:bottom-0 after:w-full after:h-16 before:z-10 before:empty-content " data-env="{{ node.env }}" x-data="{ showsidebar: false }">
+        <script>
+            document
+                .getElementById("js-fade")
+                .classList
+                .add('fade')
+        </script>
+
         {% block header %}
             {% include "_partials/site-header.njk" %}
         {% endblock %}
 
-        <main class='container h-full' id="main-content" tabindex="-1" x-data="{ show: false }"
-              :class="{ 'sidebar-visible': show }">
+        {% block headlinewrapper %}
+            <header id="headline" class="pt-16 -mb-16 shadow-xl h-80 bg-gradient-to-r from-blue-900 to-gray-400">
+                {% block Headline %}
+                    <h1 class="sr-only">Explore</h1>
+                {% endblock %}
+            </header>
+        {% endblock %}
+
+        <main class='container h-full pb-16 pl-4 pr-4 sm:pl-8 sm:pr-8' id="main-content">
             {% block sidebar %}
                 {% include "_partials/site-sidebar.njk" %}
             {% endblock %}
