@@ -2,10 +2,6 @@
     "name": "11st-starter-kit",
     "description": "11ty, powered by Snowpack with Tailwind CSS and Alpine.js.",
     "version": "1.0.0",
-    "engines": {
-        "node": "15.x.x",
-        "npm": "7.x.x"
-    },
     "main": "index.js",
     "repository": {
         "type": "git",
