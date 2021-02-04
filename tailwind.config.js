@@ -81,19 +81,37 @@ module.exports = {
             fontFamily: {
                 sans: ['Inter var', ...defaultTheme.fontFamily.sans],
             },
-            extend: {
-                spacing: {
-                    half: '50%',
-                    double: '200%',
-                },
-                width: {
-                    halfscreen: '50vw',
-                    doublescreen: '200vw',
-                },
-                height: {
-                    halfscreen: '50vh',
-                    doublescreen: '200vh',
-                },
+            inset: {
+                half: '50%',
+                double: '200%',
+                '-half': '-50%',
+                '-double': '-200%',
+                halfscreenw: '50vw',
+                doublescreenw: '200vw',
+                '-halfscreenw': '-50vw',
+                '-doublescreenw': '-200vw',
+                halfscreenh: '50vh',
+                doublescreenh: '200vh',
+                '-halfscreenh': '-50vh',
+                '-doublescreenh': '-200vh',
+            },
+            translate: {
+                half: '50%',
+                double: '200%',
+                '-half': '-50%',
+                '-double': '-200%',
+            },
+            width: {
+                halfscreen: '50vw',
+                doublescreen: '200vw',
+                '-halfscreen': '-50vw',
+                '-doublescreen': '-200vw',
+            },
+            height: {
+                halfscreen: '50vh',
+                doublescreen: '200vh',
+                '-halfscreen': '-50vh',
+                '-doublescreen': '-200vh',
             },
         },
     },
@@ -131,6 +149,14 @@ module.exports = {
                 'hover_after',
             ],
             inset: [
+                'dark',
+                'focus',
+                'before',
+                'after',
+                'hover_before',
+                'hover_after',
+            ],
+            translate: [
                 'dark',
                 'focus',
                 'before',
