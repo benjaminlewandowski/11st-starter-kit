@@ -36,7 +36,7 @@
         },
         {
             "text": "Profile",
-            "url": "/ownprofile",
+            "url": "/profile",
             "icon": "/src/_site/_includes/_icons/svg/hero/outline/user-circle.svg"
         },
         {

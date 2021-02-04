@@ -1,6 +1,6 @@
 ---
 layout: 'feed'
-title: 'Home'
+title: 'Feed'
 meta:
     desc:
         '11st-Starter-Kit is a minimal starting point for building static websites

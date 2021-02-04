@@ -1,4 +1,4 @@
 ---
 layout: 'page'
-title: 'Profile'
+title: 'Go Live'
 ---

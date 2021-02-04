@@ -28,24 +28,20 @@
                 <div class="px-4 mb-auto text-sm">
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum vel similique explicabo provident? Eaque voluptatem ut natus facere corporis ullam expedita dolorem? Esse expedita temporibus asperiores illum dolorem necessitatibus quidem?</p>
                 </div>
-
                 <footer class="px-4">
-                    <ul class="flex pt-4 pb-2 mb-2 space-x-2 overflow-x-auto overflow-y-hidden flex-nowrap">
-                        <li class="flex flex-col text-sm italic rounded-full shadow bg-neutral-200">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 24 24" stroke="currentColor" class="h-4 text-sm">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-                            </svg>
-
-                            <time datetime=" 2017-02-14" class='p-2 text-sm italic whitespace-nowrap'>2017-02-14</time>
+                    <ul class="flex flex-col items-start pt-4 pb-2 mb-2 space-y-2 overflow-x-auto overflow-y-hidden justify-items-start flex-nowrap">
+                        <li class="flex items-center text-sm italic rounded-full shadow bg-neutral-200">
+                            <figure class="flex h-8 p-2">
+                                {{ '/src/_site/_includes/_icons/svg/hero/outline/calendar.svg' | svgContents("h-full") | safe }}
+                            </figure>
+                            <time datetime=" 2017-02-14" class='pr-4 text-sm italic leading-none'>2017-02-14</time>
                         </li>
 
-                        <li class="flex rounded-full shadow bg-neutral-200">
-                            <button class='p-2 text-sm font-bold whitespace-nowrap' @click.prevent="category = 'performance'">
-                                <figure>
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"/>
-                                    </svg>
-                                    <figcaption>performance</figcaption>
+                        <li class="flex items-center text-sm rounded-full shadow bg-neutral-200">
+                            <button href='#' class='p-2 text-sm font-bold whitespace-nowrap' @click.prevent="category = 'performance'">
+                                <figure class="flex h-4 flex-nowrap">
+                                    {{ '/src/_site/_includes/_icons/svg/hero/outline/tag.svg' | svgContents("h-full") | safe }}
+                                    <figcaption class='pl-2 text-sm leading-none'>performance</figcaption>
                                 </figure>
                             </button>
                         </li>
@@ -66,18 +62,21 @@
                 </div>
 
                 <footer class="px-4">
-                    <ul class="flex items-start pt-4 pb-2 mb-2 space-x-2 overflow-x-auto overflow-y-hidden justify-items-start flex-nowrap">
-                        <li class="text-sm italic rounded-full shadow bg-neutral-200">
-                            <figure class="h-8 p-2 flex">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 24 24" stroke="currentColor" class="h-full">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-                                </svg>
+                    <ul class="flex flex-col items-start pt-4 pb-2 mb-2 space-y-2 overflow-x-auto overflow-y-hidden justify-items-start flex-nowrap">
+                        <li class="flex items-center text-sm italic rounded-full shadow bg-neutral-200">
+                            <figure class="flex h-8 p-2">
+                                {{ '/src/_site/_includes/_icons/svg/hero/outline/calendar.svg' | svgContents("h-full") | safe }}
                             </figure>
-                            <time datetime=" 2017-02-14" class='text-sm italic'>2017-02-14</time>
+                            <time datetime=" 2017-02-14" class='pr-4 text-sm italic leading-none'>2017-02-14</time>
                         </li>
 
-                        <li class="flex rounded-full shadow bg-neutral-200">
-                            <button href='#' class='p-2 text-sm font-bold whitespace-nowrap' @click.prevent="category = 'music'">#music</button>
+                        <li class="flex items-center text-sm rounded-full shadow bg-neutral-200">
+                            <button href='#' class='p-2 text-sm font-bold whitespace-nowrap' @click.prevent="category = 'music'">
+                                <figure class="flex h-4 flex-nowrap">
+                                    {{ '/src/_site/_includes/_icons/svg/hero/outline/tag.svg' | svgContents("h-full") | safe }}
+                                    <figcaption class='pl-2 text-sm leading-none'>music</figcaption>
+                                </figure>
+                            </button>
                         </li>
                     </ul>
                 </footer>
