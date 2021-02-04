@@ -1,22 +1,28 @@
 {% block sidebar %}
-    <aside id='sidebar' class='z-20 col-span-2 pr-8 opacity-0 before:bg-neutral-50 dark:before:bg-neutral-900 before:empty-content bg-neutral-50 dark:bg-neutral-900 sm:col-span-1 before:absolute before:transition-all before:block before:duration-500 before:ease-in-out before:w-screen before:h-full before:right-full' :class="{ 'fade-in': showsidebar }">
-        <header class='flex flex-col content-center h-64 pt-8 text-center jus tify-center'>
-            <figure class="flex items-center justify-center w-32 h-32 mx-auto mb-4 transition-colors duration-500 rounded-full bg-gradient-to-bl from-primary-700 to-primary-900 hover:bg-neutral-200 dark:text-neutral-300 dark:bg-neutral-700 dark:hover:bg-neutral-800" id='avatar'>
-                <picture class='flex items-center justify-center overflow-hidden border border-white rounded-full w-28 h-28'>
-                    <img src="/media/images/userplaceholder.jpg" alt="ThisIsAnExtraLongUserName" aria-hidden="true" class="object-cover min-w-full min-h-full max-w-7xl ">
-                </picture>
-            </figure>
-            <span class='text-lg'>Welcome</span>
-            <strong class='text-lg font-bold'>ExtraLongUserName</strong>
-        </header>
-        <hr>
-        <ul>
-            <li></li>
-        </ul>
-        <hr>
-        <a href='/'>
-            <figure></figure>
-            <span>logout</span>
-        </a>
+    <aside id='sidebar' class='absolute z-20 col-span-2 pr-8 transition left-4 sm:left-8 before:bg-neutral-50 dark:before:bg-neutral-900 before:transition before:empty-content bg-neutral-50 dark:bg-neutral-900 sm:col-span-1 before:absolute before:block before:w-screen before:h-full before:right-0' :class="{ 'fade-in': showsidebar }">
+        <div>
+            <header class='flex flex-col content-center justify-center text-center h-72'>
+                <figure class="flex items-center justify-center w-32 h-32 mx-auto mb-4 rounded-full bg-gradient-to-bl from-primary-700 to-primary-900 hover:bg-neutral-200 dark:text-neutral-300 dark:bg-neutral-700 dark:hover:bg-neutral-800" id='avatar'>
+                    <picture class='flex items-center justify-center overflow-hidden border border-white rounded-full w-28 h-28'>
+                        <img src="/media/images/userplaceholder.jpg" alt="ThisIsAnExtraLongUserName" aria-hidden="true" class="object-cover min-w-full min-h-full max-w-7xl ">
+                    </picture>
+                </figure>
+                <span class='mb-1 text-lg'>Welcome on your personal Stage</span>
+                <strong class='text-sm font-bold'>ExtraLongUserName</strong>
+            </header>
+            <hr>
+            <ul class="py-4 space-y-4">
+                {% for item in navigation.sidebar %}
+                    {% include "_partials/site-sidebar-item.njk" %}
+                {% endfor %}
+            </ul>
+            <hr>
+            <a href='/' class="flex pb-4 mt-4">
+                <figure class="flex w-8 mr-4">
+                    {{ '/src/_site/_includes/_icons/svg/hero/outline/logout.svg' | svgContents("stroke-current text-neutral-700 h-8") | safe }}
+                </figure>
+                <span class="flex items-center text-sm font-bold text-blue-700">logout</span>
+            </a>
+        </div>
     </aside>
 {% endblock %}

@@ -4,13 +4,8 @@
         {% include "_partials/html-head.njk" %}
     </head>
 
-    <body id="js-fade" class="min-h-screen antialiased leading-normal transition-opacity duration-300 ease-linear text-neutral-900 bg-neutral-300 loading dark:text-neutral-300 dark:bg-neutral-700 after:fixed after:bottom-0 after:w-full after:h-16 before:z-10 before:empty-content " data-env="{{ node.env }}" x-data="{ showsidebar: false }">
-        <script>
-            document
-                .getElementById("js-fade")
-                .classList
-                .add('fade')
-        </script>
+    <body id="js-fade" class="min-h-screen antialiased leading-normal transition-opacity duration-300 ease-linear text-neutral-900 bg-neutral-300 loading dark:text-neutral-300 dark:bg-neutral-700 after:fixed after:bottom-0 after:w-full after:h-16 after:z-10 after:empty-content" data-env="{{ node.env }}" x-data="{ showsidebar: false }">
+        {% include "_partials/site-fade.njk" %}
 
         {% block header %}
             {% include "_partials/site-header.njk" %}
@@ -24,15 +19,17 @@
             </header>
         {% endblock %}
 
-        <main class='container h-full pb-16 pl-4 pr-4 sm:pl-8 sm:pr-8' id="main-content">
-            {% block sidebar %}
-                {% include "_partials/site-sidebar.njk" %}
-            {% endblock %}
+        {% block contentwrapper %}
+            <main class='container relative h-full pb-16 pl-4 pr-4 sm:pl-8 sm:pr-8' id="main-content" >
+                {% block sidebar %}
+                    {% include "_partials/site-sidebar.njk" %}
+                {% endblock %}
 
-            {% block content %}
-                {{ content | safe }}
-            {% endblock %}
-        </main>
+                {% block content %}
+                    {{ content | safe }}
+                {% endblock %}
+            </main>
+        {% endblock %}
 
         {% include "_partials/site-footer.njk" %}
     </body>

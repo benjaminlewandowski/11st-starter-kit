@@ -1,0 +1,8 @@
+<li>
+    <a href="{{item.url}}" class="flex">
+        <figure class="flex w-8 mr-4">
+            {{ item.icon | svgContents("stroke-current text-neutral-700 h-8") | safe }}
+        </figure>
+        <span class="flex items-center text-sm font-bold text-blue-700">{{item.text}}</span>
+    </a>
+</li>

@@ -1,9 +1,9 @@
 {
     "mainloggedin": [
         {
-            "text": "Home",
-            "url": "/",
-            "classes": ""
+            "text": "Go Live",
+            "url": "/live",
+            "classes": "live whitespace-nowrap before:font-semibold before:leading-none before:text-lg"
         }
     ],
     "mainanon": [
@@ -16,6 +16,33 @@
             "text": "Login",
             "url": "/login",
             "classes": "text-neutral-700 border-neutral-700"
+        }
+    ],
+    "sidebar": [
+        {
+            "text": "Feed",
+            "url": "/feed",
+            "icon": "/src/_site/_includes/_icons/svg/hero/outline/view-grid.svg"
+        },
+        {
+            "text": "Explore",
+            "url": "/explore",
+            "icon": "/src/_site/_includes/_icons/svg/hero/outline/eye.svg"
+        },
+        {
+            "text": "Saved for Later",
+            "url": "/saved",
+            "icon": "/src/_site/_includes/_icons/svg/hero/outline/bookmark-alt.svg"
+        },
+        {
+            "text": "Profile",
+            "url": "/ownprofile",
+            "icon": "/src/_site/_includes/_icons/svg/hero/outline/user-circle.svg"
+        },
+        {
+            "text": "Settings",
+            "url": "/settings",
+            "icon": "/src/_site/_includes/_icons/svg/hero/outline/cog.svg"
         }
     ]
 }

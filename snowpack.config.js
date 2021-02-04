@@ -1,8 +1,8 @@
 module.exports = {
     mount: {
         _build: { url: '/', static: true, resolve: false },
-        'src/resources/scripts': { url: '/scripts' },
-        'src/resources/styles': { url: '/styles' },
+        'src/resources/scripts': { url: '/' },
+        'src/resources/styles': { url: '/' },
     },
     plugins: [
         '@snowpack/plugin-postcss',
