@@ -1,25 +1,117 @@
-<section class="grid grid-cols-1 gap-4 auto-rows-auto xl:gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 3xl:grid-cols-7" x-data="{ category: 'all' }">
-    <aside class="sticky h-full col-span-1 p-2 transition-all duration-200 ease-linear bg-white rounded shadow top-20 md:p-4 hover:bg-neutral-50 hover:shadow-lg">
+<section class="grid grid-cols-1 gap-4 auto-rows-auto xl:gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 3xl:grid-cols-6" x-data="{ category: 'all' }">
+    <header class="col-span-1 sr-only md:col-span-2 lg:col-span-3 xl:col-span-4 2xl:col-span-5 3xl:col-span-6">
+        <h2>Calendar</h2>
+    </header>
+
+    <aside class="h-full col-span-1 p-2 transition-all duration-200 ease-linear bg-white rounded shadow md:p-4 hover:bg-neutral-50 hover:shadow-lg">
         <header class="sr-only">Filter</header>
-        <p class="block mb-2 text-lg font-medium">Tags:</p>
-        <ul class="sort-links">
-            <li class="link-item">
-                <a href="#" @click.prevent="category = 'all'" :class="{ 'active' : category === 'all' }">All</a>
-            </li>
+        <div class="sticky top-20">
+            <section>
+                <p class="block mb-2 text-lg font-medium">Tags:</p>
+                <ul class="sort-links">
+                    <li class="link-item">
+                        <a href="#" @click.prevent="category = 'all'" :class="{ 'active' : category === 'all' }">All</a>
+                    </li>
 
-            <li class="link-item">
-                <a href="#" @click.prevent="category = 'music'" :class="{ 'active' : category === 'music' }">Music</a>
-            </li>
+                    <li class="link-item">
+                        <a href="#" @click.prevent="category = 'music'" :class="{ 'active' : category === 'music' }">Music</a>
+                    </li>
 
-            <li class="link-item">
-                <a href="#" @click.prevent="category = 'performance'" :class="{ 'active' : category === 'performance' }">Performance</a>
-            </li>
-        </ul>
+                    <li class="link-item">
+                        <a href="#" @click.prevent="category = 'performance'" :class="{ 'active' : category === 'performance' }">Performance</a>
+                    </li>
+                </ul>
+            </section>
+
+            <section>
+                <p class="block mt-2 mb-2 text-lg font-medium">Calendar:</p>
+                <input id="start-date" class="hidden"/>
+                <input id="end-date" class="hidden"/>
+                <style>
+                    .litepicker {
+                        width: 100%;
+                    }
+
+                    .month-item {
+                        display: flex;
+                        flex-direction: column;
+                    }
+
+                    .month-item-header {
+                        display: flex;
+                        justify-content: space-around;
+                    }
+                    .month-item-header button {
+                        width: 2rem;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    }
+                    .month-item-header button svg {
+                        pointer-events: none;
+                    }
+
+                    .month-item-header div {
+                        width: 100%;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                    }
+                    .month-item-weekdays-row {
+                        display: grid;
+                        grid-template-columns: repeat(7, minmax(0, 1fr));
+                        font-weight: bolder;
+                    }
+
+                    .container__days {
+                        display: grid;
+                        grid-template-columns: repeat(7, minmax(0, 1fr));
+                    }
+
+                    .month-item-weekdays-row {
+                        border-bottom: 1px solid black;
+                        border-top: 1px solid black;
+                        padding-bottom: 0.125rem;
+                        margin-bottom: 0.125rem;
+                        padding-top: 0.125rem;
+                        margin-top: 0.125rem;
+                        text-align: center;
+                    }
+                    .day-item.is-start-date {
+                        border-top: 1px solid orange;
+                        border-bottom: 1px solid orange;
+                        background-color: lightgray;
+                    }
+                    .day-item.is-in-range {
+                        border-top: 1px solid orange;
+                        border-bottom: 1px solid orange;
+                        background-color: lightblue;
+                    }
+                    .day-item.is-end-date {
+                        border-top: 1px solid orange;
+                        background-color: lightgray;
+                        border-bottom: 1px solid orange;
+                    }
+                    .container__days > div {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        padding: 0.25rem 0.125rem;
+                        margin: 0.125rem 0;
+                        border: 1px solid transparent;
+                    }
+                    .day-item:hover {
+                        background-color: lightcyan;
+                    }
+                </style>
+                <div id="cal"></div>
+            </section>
+        </div>
     </aside>
 
-    <div class="grid grid-cols-1 col-span-1 gap-2 lg:gap-4 xl:gap-6 md:col-span-2 lg:col-span-3 xl:col-span-4 2xl:col-span-5 3xl:col-span-6 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 3xl:grid-cols-5">
+    <div class="grid grid-cols-1 col-span-1 gap-2 lg:gap-4 xl:gap-6 lg:col-span-2 xl:col-span-3 2xl:col-span-4 3xl:col-span-5 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 3xl:grid-cols-5">
         {% for i in range(0, 8) -%}
-            <article x-show="category === 'performance' || category === 'all'" class="flex flex-col col-span-1 transition-all duration-200 ease-linear bg-white rounded shadow hover:bg-neutral-50 hover:shadow-lg" data-category="performance">
+            <article x-show="category === 'performance' || category === 'all'" class="flex flex-col col-span-1 transition-all duration-200 ease-linear bg-white rounded shadow hover:bg-neutral-50 hover:shadow-lg event" data-category="performance" data-date="2021-02-06">
                 <header>
                     <img class="rounded-t shadow" src="/media/images/placeholder.png">
                     <h2 class="p-4 text-xl font-medium">Title</h2>
@@ -28,13 +120,14 @@
                 <div class="px-4 mb-auto text-sm">
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum vel similique explicabo provident? Eaque voluptatem ut natus facere corporis ullam expedita dolorem? Esse expedita temporibus asperiores illum dolorem necessitatibus quidem?</p>
                 </div>
+
                 <footer class="px-4">
                     <ul class="flex flex-col items-start pt-4 pb-2 mb-2 space-y-2 overflow-x-auto overflow-y-hidden justify-items-start flex-nowrap">
                         <li class="flex items-center text-sm italic rounded-full shadow bg-neutral-200">
                             <figure class="flex h-8 p-2">
                                 {{ '/src/_site/_includes/_icons/svg/hero/outline/calendar.svg' | svgContents("h-full") | safe }}
                             </figure>
-                            <time datetime=" 2017-02-14" class='pr-4 text-sm italic leading-none'>2017-02-14</time>
+                            <time datetime="2021-02-06" class='pr-4 text-sm italic leading-none'>2021-02-06</time>
                         </li>
 
                         <li class="flex items-center text-sm rounded-full shadow bg-neutral-200">
@@ -51,7 +144,7 @@
         {%- endfor %}
 
         {% for i in range(0, 8) -%}
-            <article x-show="category === 'music' || category === 'all'" class="flex flex-col col-span-1 transition-all duration-200 ease-linear bg-white rounded shadow hover:bg-neutral-50 hover:shadow-lg" data-category="music">
+            <article x-show="category === 'music' || category === 'all'" class="flex flex-col col-span-1 transition-all duration-200 ease-linear bg-white rounded shadow hover:bg-neutral-50 hover:shadow-lg event" data-category="music" data-date="2021-02-06">
                 <header>
                     <img class="rounded-t shadow" src="/media/images/placeholder.png">
                     <h2 class="p-4 text-xl font-medium">Title</h2>
@@ -67,7 +160,7 @@
                             <figure class="flex h-8 p-2">
                                 {{ '/src/_site/_includes/_icons/svg/hero/outline/calendar.svg' | svgContents("h-full") | safe }}
                             </figure>
-                            <time datetime=" 2017-02-14" class='pr-4 text-sm italic leading-none'>2017-02-14</time>
+                            <time datetime=" 2021-02-06" class='pr-4 text-sm italic leading-none'>2021-02-06</time>
                         </li>
 
                         <li class="flex items-center text-sm rounded-full shadow bg-neutral-200">
