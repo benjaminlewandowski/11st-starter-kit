@@ -15,7 +15,7 @@ module.exports = function (config) {
 
     // Plugins
     config.addPlugin(pluginNavigation);
-    config.addPlugin(pluginLazyImages,  {preferNativeLazyLoad: true});
+    config.addPlugin(pluginLazyImages, {preferNativeLazyLoad: true});
     config.addPlugin(pluginRss);
     config.addPlugin(pluginSvgContents);
     config.addPlugin(pluginSEO, require('./src/_site/_data/site.js'));
