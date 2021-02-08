@@ -313,3 +313,11 @@ body {
         top: 4rem;
     }
 }
+
+#filter div {
+    position: static;
+
+    @media screen and (min-height: 36rem) {
+        position: sticky;
+    }
+}

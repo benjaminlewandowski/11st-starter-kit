@@ -133,14 +133,14 @@
         "html-minifier": "^4.0.0",
         "npm-run-all": "^4.1.5",
         "nunjucks": "^3.2.2",
-        "postcss": "^8.2.4",
+        "postcss": "^8.2.5",
         "postcss-cli": "^8.3.1",
         "postcss-combine-media-query": "^1.0.1",
         "postcss-import": "^14.0.0",
         "postcss-nested": "^5.0.3",
         "postcss-preset-env": "^6.7.0",
         "postcss-short": "^5.0.0",
-        "postcss-sort-media-queries": "^3.2.3",
+        "postcss-sort-media-queries": "^3.3.3",
         "postcss-sorting": "^6.0.0",
         "postcss-utilities": "^0.8.4",
         "prettier": "^2.2.1",
@@ -154,7 +154,7 @@
         "stylelint-config-standard": "^20.0.0",
         "stylelint-order": "^4.1.0",
         "stylelint-prettier": "^1.1.2",
-        "tailwindcss": "^2.0.2",
+        "tailwindcss": "^2.0.3",
         "tailwindcss-blend-mode": "^1.0.0",
         "tailwindcss-css-filters": "^2.0.0",
         "tailwindcss-debug-screens": "^2.0.0",
@@ -165,6 +165,6 @@
     },
     "dependencies": {
         "alpinejs": "^2.8.0",
-        "litepicker": "^2.0.2"
+        "litepicker": "^2.0.3"
     }
 }
