@@ -18,7 +18,7 @@ module.exports = function (config) {
     config.addPlugin(pluginLazyImages);
     config.addPlugin(pluginRss);
     config.addPlugin(pluginSvgContents);
-    config.addPlugin(pluginSEO, require('./src/_site/_data/site.json'));
+    config.addPlugin(pluginSEO, require('./src/_site/_data/site.js'));
 
     // Static assets to pass through
     config.addPassthroughCopy({ './src/fonts': 'fonts' });
