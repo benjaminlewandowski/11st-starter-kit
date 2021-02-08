@@ -90,7 +90,9 @@
         "*.{js,njk}": "eslint --fix"
     },
     "scripts": {
-        "clean": "rimraf _build",
+        "clean": "run-s clean:*",
+        "clean:build": "rimraf _build",
+        "clean:dist": "rimraf dist",
         "serve": "serve --no-clipboard --listen 8080 dist",
         "dev": "NODE_ENV=development run-s clean dev:*",
         "dev:snowpack": "snowpack dev",

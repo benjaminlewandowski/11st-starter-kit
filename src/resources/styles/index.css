@@ -1,9 +1,5 @@
 :root {
-    font-size: 93.75%;
-
-    @media (min-width: 512px) {
-        font-size: 100%;
-    }
+    font-size: 100%;
 
     @media (min-width: 768px) {
         font-size: 106.25%;

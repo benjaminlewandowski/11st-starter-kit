@@ -80,6 +80,14 @@ module.exports = {
             fontFamily: {
                 sans: ['Inter var', ...defaultTheme.fontFamily.sans],
             },
+            spacing: {
+                54: '12.5rem',
+                '-54': '-12.5rem',
+                56: '13.5rem',
+                '-56': '-13.5rem',
+                58: '14.5rem',
+                '-58': '-14.5rem',
+            },
             inset: {
                 half: '50%',
                 double: '200%',
