@@ -1,4 +1,4 @@
-const isprod = process.en
+const isprod = process.env.NODE_ENV === 'production';
 
 module.exports = {
     name: isprod ? 'Stage' : 'DEVStage',

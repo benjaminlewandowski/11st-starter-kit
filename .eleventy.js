@@ -8,6 +8,8 @@ const pluginSEO = require('eleventy-plugin-seo');
 const pluginLazyImages = require('eleventy-plugin-lazyimages');
 const pluginSvgContents = require('eleventy-plugin-svg-contents');
 
+const isprod = process.env.NODE_ENV === 'production';
+
 module.exports = function (config) {
     config.setUseGitIgnore(true);
     config.setDataDeepMerge(true);
@@ -15,7 +17,7 @@ module.exports = function (config) {
 
     // Plugins
     config.addPlugin(pluginNavigation);
-    config.addPlugin(pluginLazyImages, {preferNativeLazyLoad: true});
+    config.addPlugin(pluginLazyImages, { preferNativeLazyLoad: true });
     config.addPlugin(pluginRss);
     config.addPlugin(pluginSvgContents);
     config.addPlugin(pluginSEO, require('./src/_site/_data/site.js'));
@@ -66,7 +68,7 @@ module.exports = function (config) {
     });
 
     // minify if production
-    if (config.environment === 'production') {
+    if (isprod) {
         config.addTransform('htmlmin', function (content, outputPath) {
             if (outputPath.endsWith('.html')) {
                 return htmlmin.minify(content, {
