@@ -1,5 +1,7 @@
 import 'alpinejs';
 import Litepicker from 'litepicker/dist/nocss/litepicker.umd.js';
+import 'litepicker/dist/plugins/mobilefriendly';
+import 'litepicker/dist/plugins/keyboardnav';
 
 const start = document.getElementById('start-date');
 const end = document.getElementById('end-date');
@@ -34,6 +36,7 @@ const picker = new Litepicker({
     showTooltip: false,
     disableWeekends: false,
     mobileFriendly: true,
+    plugins: ['mobilefriendly', 'keyboardnav'],
 
     onSelect: function () {
         for (let i = 0; i < event.length; i++) {

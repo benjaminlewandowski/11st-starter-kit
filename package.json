@@ -167,6 +167,6 @@
     },
     "dependencies": {
         "alpinejs": "^2.8.0",
-        "litepicker": "^2.0.3"
+        "litepicker": "^2.0.4"
     }
 }

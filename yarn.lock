@@ -5175,10 +5175,10 @@
   "resolved" "https://registry.yarnpkg.com/list-to-array/-/list-to-array-1.1.0.tgz"
   "version" "1.1.0"
 
-"litepicker@^2.0.3":
-  "integrity" "sha512-8au1kI38lzurDUS5AlawxFfZDQpRzP1bAuo4KSSEtX/mE5VS46+UOSh2CET2QZLA5UDp34ul/FCJG9oee9ARfA=="
-  "resolved" "https://registry.npmjs.org/litepicker/-/litepicker-2.0.3.tgz"
-  "version" "2.0.3"
+"litepicker@^2.0.4":
+  "integrity" "sha512-UwD8WbXnguukcRAVjOkheJhBXmE/RuiWQe7JHjbJ3eN/4m8bABlMyx8HB6bdwng63g3poSF1W4ZqIMbvHrqFSw=="
+  "resolved" "https://registry.npmjs.org/litepicker/-/litepicker-2.0.4.tgz"
+  "version" "2.0.4"
 
 "load-json-file@^2.0.0":
   "integrity" "sha1-eUfkIUmvgNaWy/eXvKq8/h/inKg="
