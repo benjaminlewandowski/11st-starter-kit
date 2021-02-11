@@ -5117,10 +5117,10 @@
   "resolved" "https://registry.yarnpkg.com/known-css-properties/-/known-css-properties-0.11.0.tgz"
   "version" "0.11.0"
 
-"known-css-properties@^0.20.0":
-  "integrity" "sha512-URvsjaA9ypfreqJ2/ylDr5MUERhJZ+DhguoWRr2xgS5C7aGCalXo+ewL+GixgKBfhT2vuL02nbIgNGqVWgTOYw=="
-  "resolved" "https://registry.yarnpkg.com/known-css-properties/-/known-css-properties-0.20.0.tgz"
-  "version" "0.20.0"
+"known-css-properties@^0.21.0":
+  "integrity" "sha512-sZLUnTqimCkvkgRS+kbPlYW5o8q5w1cu+uIisKpEWkj31I8mx8kNG162DwRav8Zirkva6N5uoFsm9kzK4mUXjw=="
+  "resolved" "https://registry.npmjs.org/known-css-properties/-/known-css-properties-0.21.0.tgz"
+  "version" "0.21.0"
 
 "lazy-cache@^1.0.3":
   "integrity" "sha1-odePw6UEdMuAhF07O24dpJpEbo4="
@@ -7306,10 +7306,10 @@
     "indexes-of" "^1.0.1"
     "uniq" "^1.0.1"
 
-"postcss@*", "postcss@^8.0.0", "postcss@^8.0.4", "postcss@^8.0.9", "postcss@^8.1.0", "postcss@^8.1.13", "postcss@^8.1.6", "postcss@^8.2.1", "postcss@^8.2.5":
-  "integrity" "sha512-wMcb7BpDcm3gxQOQx46NDNT36Kk0Ao6PJLLI2ed5vehbbbxCEuslSQzbQ2sfSKy+gkYxhWcGWSeaK+gwm4KIZg=="
-  "resolved" "https://registry.npmjs.org/postcss/-/postcss-8.2.5.tgz"
-  "version" "8.2.5"
+"postcss@*", "postcss@^8.0.0", "postcss@^8.0.4", "postcss@^8.0.9", "postcss@^8.1.0", "postcss@^8.1.13", "postcss@^8.1.6", "postcss@^8.2.1", "postcss@^8.2.5", "postcss@^8.2.6":
+  "integrity" "sha512-xpB8qYxgPuly166AGlpRjUdEYtmOWx2iCwGmrv4vqZL9YPVviDVPZPRXxnXr6xPZOdxQ9lp3ZBFCRgWJ7LE3Sg=="
+  "resolved" "https://registry.npmjs.org/postcss/-/postcss-8.2.6.tgz"
+  "version" "8.2.6"
   dependencies:
     "colorette" "^1.2.1"
     "nanoid" "^3.1.20"
@@ -9017,10 +9017,10 @@
   dependencies:
     "prettier-linter-helpers" "^1.0.0"
 
-"stylelint@^10.0.1 || ^11.0.0 || ^12.0.0 || ^13.0.0", "stylelint@^13.9.0", "stylelint@>= 9.2.1", "stylelint@>=10.1.0", "stylelint@>=11.0.0":
-  "integrity" "sha512-VVWH2oixOAxpWL1vH+V42ReCzBjW2AeqskSAbi8+3OjV1Xg3VZkmTcAqBZfRRvJeF4BvYuDLXebW3tIHxgZDEg=="
-  "resolved" "https://registry.yarnpkg.com/stylelint/-/stylelint-13.9.0.tgz"
-  "version" "13.9.0"
+"stylelint@^10.0.1 || ^11.0.0 || ^12.0.0 || ^13.0.0", "stylelint@^13.10.0", "stylelint@>= 9.2.1", "stylelint@>=10.1.0", "stylelint@>=11.0.0":
+  "integrity" "sha512-eDuLrL0wzPKbl5/TbNGZcbw0lTIGbDEr5W6lCODvb1gAg0ncbgCRt7oU0C2VFDvbrcY0A3MFZOwltwTRmc0XCw=="
+  "resolved" "https://registry.npmjs.org/stylelint/-/stylelint-13.10.0.tgz"
+  "version" "13.10.0"
   dependencies:
     "@stylelint/postcss-css-in-js" "^0.37.2"
     "@stylelint/postcss-markdown" "^0.36.2"
@@ -9041,7 +9041,7 @@
     "ignore" "^5.1.8"
     "import-lazy" "^4.0.0"
     "imurmurhash" "^0.1.4"
-    "known-css-properties" "^0.20.0"
+    "known-css-properties" "^0.21.0"
     "lodash" "^4.17.20"
     "log-symbols" "^4.0.0"
     "mathml-tag-names" "^2.1.3"
