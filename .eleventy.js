@@ -1,14 +1,16 @@
 const fs = require('fs');
 
-const htmlmin = require('html-minifier');
+const html_minifier = require('html-minifier');
 
 const pluginNavigation = require('@11ty/eleventy-navigation');
 const pluginRss = require('@11ty/eleventy-plugin-rss');
 const pluginSEO = require('eleventy-plugin-seo');
 const pluginLazyImages = require('eleventy-plugin-lazyimages');
 const pluginSvgContents = require('eleventy-plugin-svg-contents');
+const pluginErrorOverlay = require('eleventy-plugin-error-overlay');
+const pluginTypeset = require('eleventy-plugin-typeset');
 
-const isprod = process.env.NODE_ENV === 'production';
+const production = process.env.NODE_ENV === 'production';
 
 module.exports = function (config) {
     config.setUseGitIgnore(true);
@@ -17,10 +19,12 @@ module.exports = function (config) {
 
     // Plugins
     config.addPlugin(pluginNavigation);
-    config.addPlugin(pluginLazyImages, { preferNativeLazyLoad: true });
     config.addPlugin(pluginRss);
     config.addPlugin(pluginSvgContents);
+    config.addPlugin(pluginErrorOverlay);
+    config.addPlugin(pluginTypeset);
     config.addPlugin(pluginSEO, require('./src/_site/_data/site.js'));
+    config.addPlugin(pluginLazyImages, { preferNativeLazyLoad: true });
 
     // Static assets to pass through
     config.addPassthroughCopy({ './src/fonts': 'fonts' });
@@ -52,26 +56,29 @@ module.exports = function (config) {
         require('./src/_site/_includes/_filters/dates.js')
     );
 
-    // 404
-    config.setBrowserSyncConfig({
-        callbacks: {
-            ready: function (err, browserSync) {
-                const content_404 = fs.readFileSync('dist/404.html');
+    // Browser Sync 404
+    if (!production) {
+        config.setBrowserSyncConfig({
+            callbacks: {
+                ready: function (err, browserSync) {
+                    const content_404 = fs.readFileSync('dist/404.html');
 
-                browserSync.addMiddleware('*', (req, res) => {
-                    // Provides the 404 content without redirect.
-                    res.write(content_404);
-                    res.end();
-                });
+                    // noinspection JSUnresolvedFunction
+                    browserSync.addMiddleware('*', (req, res) => {
+                        // Provides the 404 content without redirect.
+                        res.write(content_404);
+                        res.end();
+                    });
+                },
             },
-        },
-    });
+        });
+    }
 
     // minify if production
-    if (isprod) {
-        config.addTransform('htmlmin', function (content, outputPath) {
+    if (production) {
+        config.addTransform('html_minifier', function (content, outputPath) {
             if (outputPath.endsWith('.html')) {
-                return htmlmin.minify(content, {
+                return html_minifier.minify(content, {
                     useShortDoctype: true,
                     removeComments: true,
                     collapseWhitespace: true,
@@ -82,17 +89,32 @@ module.exports = function (config) {
     }
 
     // Layout Aliases
-    // Default Layouts
     config.addLayoutAlias('default', 'default.njk');
     config.addLayoutAlias('post', 'post.njk');
     config.addLayoutAlias('page', 'page.njk');
+    config.addLayoutAlias('profile', 'profile.njk');
+    config.addLayoutAlias('listing', 'listing.njk');
 
-    // Special Layouts
-    config.addLayoutAlias('index', 'special/index.njk');
-    config.addLayoutAlias('login', 'special/login.njk');
-    config.addLayoutAlias('register', 'special/register.njk');
-    config.addLayoutAlias('404', 'special/404.njk');
-    config.addLayoutAlias('feed', 'special/feed.njk');
+    // Page Sub Layout Aliases
+    config.addLayoutAlias('index', 'sub/page-index.njk');
+    config.addLayoutAlias('login', 'sub/page-login.njk');
+    config.addLayoutAlias('register', 'sub/page-register.njk');
+    config.addLayoutAlias('404', 'sub/page-404.njk');
+
+    // Listing Sub Layout Aliases
+    config.addLayoutAlias('feed', 'sub/listing-feed.njk');
+    config.addLayoutAlias('explore', 'sub/listing-explore.njk');
+
+    // Post Sub Layout Aliases
+    config.addLayoutAlias('future', 'sub/post-future.njk');
+    config.addLayoutAlias('past', 'sub/post-past.njk');
+    config.addLayoutAlias('live', 'sub/post-live.njk');
+
+    // Profile Sub Layout Aliases
+    config.addLayoutAlias('profile-own', 'sub/profile-own.njk');
+    config.addLayoutAlias('profile-other', 'sub/profile-other.njk');
+    config.addLayoutAlias('profile-location', 'sub/profile-location.njk');
+    config.addLayoutAlias('profile-collective', 'sub/profile-collective.njk');
 
     return {
         dir: {

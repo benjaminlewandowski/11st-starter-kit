@@ -1,0 +1,66 @@
+{% extends "./../listing.njk" %}
+
+{% block class %}
+    {{ super() }}
+    is-ƒeed
+{% endblock class %}
+
+{% block Headline %}
+    <h1 class="container px-4 py-8 md:px-6 xl:px-8">
+        <span class="p-2 font-bold rounded bg-primary-900 text-neutral-100">{{ title }}</span>
+    </h1>
+{% endblock %}
+
+{% block content %}
+    {# sm:col-span-2 lg:col-span-3 xl:col-span-4 2xl:col-span-5 3xl:col-span-6 #}
+    <section class="grid grid-cols-1 col-span-1 gap-2 md:gap-4 lg:gap-6 xl:gap-8 md:col-span-2 lg:col-span-3 xl:col-span-4 2xl:col-span-5 3xl:col-span-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 3xl:grid-cols-6" x-data="{ category: 'all' }">
+        <nav class="container -mt-24 md:col-span-2 lg:col-span-3 xl:col-span-4 2xl:col-span-5 3xl:col-span-6">
+            <ul class="flex space-x-4 overflow-x-auto flex-nowrap">
+                <li class="link-item">
+                    <button class="p-2 rounded shadow bg-neutral-900 text-neutral-50" @click.prevent="category = 'all'" :class="{ 'active' : category === 'all' }">All</button>
+                </li>
+
+                <li class="link-item">
+                    <button class="p-2 rounded shadow bg-neutral-900 text-neutral-50" @click.prevent="category = 'music'" :class="{ 'active' : category === 'music' }">Music</a>
+                </li>
+
+                <li class="link-item">
+                    <button class="p-2 rounded shadow bg-neutral-900 text-neutral-50" @click.prevent="category = 'performance'" :class="{ 'active' : category === 'performance' }">Performance</a>
+                </li>
+            </ul>
+        </nav>
+
+        {% for i in range(0, 8) -%}
+            <article x-show="category === 'performance' || category === 'all'" class="flex flex-col col-span-1 transition-all duration-200 ease-linear bg-white rounded shadow hover:bg-neutral-50 hover:shadow-lg event" data-category="performance" data-date="2021-02-06">
+                <header>
+                    <img class="rounded-t shadow" src="/media/images/placeholder.png" alt="placeholder">
+                    <h2 class="p-4 text-xl font-medium">Title</h2>
+                </header>
+
+                <div class="px-4 mb-auto text-sm">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum vel similique explicabo provident? Eaque voluptatem ut natus facere corporis ullam expedita dolorem? Esse expedita temporibus asperiores illum dolorem necessitatibus quidem?</p>
+                </div>
+
+                <footer class="px-4">
+                    <ul class="flex flex-col items-start pt-4 pb-2 mb-2 space-y-2 overflow-x-auto overflow-y-hidden justify-items-start flex-nowrap">
+                        <li class="flex items-center text-sm italic rounded-full shadow bg-neutral-200">
+                            <figure class="flex h-8 p-2">
+                                {{ '/src/_site/_includes/_icons/svg/hero/outline/calendar.svg' | svgContents("h-full") | safe }}
+                            </figure>
+                            <time datetime="2021-02-06" class='pr-4 text-sm italic leading-none'>2021-02-06</time>
+                        </li>
+
+                        <li class="flex items-center text-sm rounded-full shadow bg-neutral-200">
+                            <button href='#' class='p-2 text-sm font-bold whitespace-nowrap' @click.prevent="category = 'performance'">
+                                <figure class="flex h-4 flex-nowrap">
+                                    {{ '/src/_site/_includes/_icons/svg/hero/outline/tag.svg' | svgContents("h-full") | safe }}
+                                    <figcaption class='pl-2 text-sm leading-none'>performance</figcaption>
+                                </figure>
+                            </button>
+                        </li>
+                    </ul>
+                </footer>
+            </article>
+        {%- endfor %}
+    </section>
+{% endblock %}

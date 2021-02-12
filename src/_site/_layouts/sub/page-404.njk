@@ -1,0 +1,10 @@
+{% extends "./../page.njk" %}
+
+{% block header %}
+    {% include "_partials/site-header-anon.njk" %}
+{% endblock %}
+
+{% block class %}
+    {{ super() }}
+    is-404
+{% endblock class %}
