@@ -96,19 +96,36 @@ module.exports = function (config) {
     config.addLayoutAlias('listing', 'listing.njk');
 
     // Page Sub Layout Aliases
+    config.addLayoutAlias('404', 'sub/page-404.njk');
+    config.addLayoutAlias('about', 'sub/page-about.njk');
+    config.addLayoutAlias('imprint', 'sub/page-imprint.njk');
     config.addLayoutAlias('index', 'sub/page-index.njk');
     config.addLayoutAlias('login', 'sub/page-login.njk');
+    config.addLayoutAlias('privacy', 'sub/page-privacy.njk');
     config.addLayoutAlias('register', 'sub/page-register.njk');
-    config.addLayoutAlias('404', 'sub/page-404.njk');
+    config.addLayoutAlias('register', 'sub/page-settings.njk');
+    config.addLayoutAlias('register', 'sub/page-tos.njk');
 
     // Listing Sub Layout Aliases
-    config.addLayoutAlias('feed', 'sub/listing-feed.njk');
+    config.addLayoutAlias('blog', 'sub/listing-blog.njk');
     config.addLayoutAlias('explore', 'sub/listing-explore.njk');
+    config.addLayoutAlias('feed', 'sub/listing-feed.njk');
+    config.addLayoutAlias('help', 'sub/listing-help.njk');
+    config.addLayoutAlias('jobs', 'sub/listing-jobs.njk');
+    config.addLayoutAlias(
+        'search_requests_popular',
+        'sub/listing-search_requests_popular.njk'
+    );
+    config.addLayoutAlias('search_results', 'sub/listing-search_results.njk');
+    config.addLayoutAlias('users', 'sub/listing-users.njk');
 
     // Post Sub Layout Aliases
-    config.addLayoutAlias('future', 'sub/post-future.njk');
-    config.addLayoutAlias('past', 'sub/post-past.njk');
-    config.addLayoutAlias('live', 'sub/post-live.njk');
+    config.addLayoutAlias('job', 'sub/post-blog.njk');
+    config.addLayoutAlias('future', 'sub/post-event-future.njk');
+    config.addLayoutAlias('live', 'sub/post-event-live.njk');
+    config.addLayoutAlias('past', 'sub/post-event-past.njk');
+    config.addLayoutAlias('help_item', 'sub/post-help_item.njk');
+    config.addLayoutAlias('job', 'sub/post-job.njk');
 
     // Profile Sub Layout Aliases
     config.addLayoutAlias('profile-own', 'sub/profile-own.njk');
