@@ -5,7 +5,20 @@
     </head>
 
     <body id="js-fade" class="min-h-screen antialiased leading-normal transition-opacity duration-300 ease-linear text-neutral-900 bg-neutral-300 loading dark:text-neutral-300 dark:bg-neutral-700 after:fixed after:bottom-0 after:w-full after:h-16 after:z-10 after:empty-content" data-env="{{ node.env }}" x-data="{ showsidebar: false }">
-        {% include "_partials/site-fade.njk" %}
+        <script>
+            document.getElementById("js-fade").classList.add("fade");
+            window.addEventListener("load", function(event) {
+                passive: true;
+                document
+                    .body
+                    .classList
+                    .remove("loading");
+                document
+                    .body
+                    .classList
+                    .add("loaded");
+            });
+        </script>
 
         {% block header %}
             {% include "_partials/site-header.njk" %}
