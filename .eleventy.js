@@ -8,7 +8,7 @@ const pluginSEO = require('eleventy-plugin-seo');
 const pluginLazyImages = require('eleventy-plugin-lazyimages');
 const pluginSvgContents = require('eleventy-plugin-svg-contents');
 const pluginErrorOverlay = require('eleventy-plugin-error-overlay');
-const pluginTypeset = require('eleventy-plugin-typeset');
+/* const pluginTypeset = require('eleventy-plugin-typeset'); */
 
 const production = process.env.NODE_ENV === 'production';
 
@@ -22,7 +22,7 @@ module.exports = function (config) {
     config.addPlugin(pluginRss);
     config.addPlugin(pluginSvgContents);
     config.addPlugin(pluginErrorOverlay);
-    config.addPlugin(pluginTypeset);
+    /* config.addPlugin(pluginTypeset); */
     config.addPlugin(pluginSEO, require('./src/_site/_data/site.js'));
     config.addPlugin(pluginLazyImages, { preferNativeLazyLoad: true });
 

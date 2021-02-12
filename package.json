@@ -129,7 +129,6 @@
         "eleventy-plugin-local-respimg": "^0.4.0",
         "eleventy-plugin-seo": "^0.5.1",
         "eleventy-plugin-svg-contents": "^0.7.0",
-        "eleventy-plugin-typeset": "github:liamfiddler/eleventy-plugin-typeset",
         "eslint": "^7.19.0",
         "eslint-config-prettier": "^7.2.0",
         "eslint-plugin-html": "^6.1.1",
