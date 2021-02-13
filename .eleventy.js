@@ -1,6 +1,7 @@
 const fs = require('fs');
 
 const html_minifier = require('html-minifier');
+const yaml = require('js-yaml');
 
 const pluginNavigation = require('@11ty/eleventy-navigation');
 const pluginRss = require('@11ty/eleventy-plugin-rss');
@@ -27,7 +28,7 @@ module.exports = function (config) {
     config.addPlugin(pluginLazyImages, { preferNativeLazyLoad: true });
 
     // Static assets to pass through
-    config.addPassthroughCopy({ './src/fonts': 'fonts' });
+    config.addPassthroughCopy({ './src/resources/fonts': 'fonts' });
     config.addPassthroughCopy({ './src/media/images': 'media/images' });
     config.addPassthroughCopy({ './src/media/video': 'media/video' });
     config.addPassthroughCopy({ './src/static': '/' });
@@ -132,6 +133,9 @@ module.exports = function (config) {
     config.addLayoutAlias('profile-other', 'sub/profile-other.njk');
     config.addLayoutAlias('profile-location', 'sub/profile-location.njk');
     config.addLayoutAlias('profile-collective', 'sub/profile-collective.njk');
+
+    // Enable yaml data files
+    config.addDataExtension('yaml', (contents) => yaml.safeLoad(contents));
 
     return {
         dir: {

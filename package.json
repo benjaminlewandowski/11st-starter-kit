@@ -129,12 +129,13 @@
         "eleventy-plugin-local-respimg": "^0.4.0",
         "eleventy-plugin-seo": "^0.5.1",
         "eleventy-plugin-svg-contents": "^0.7.0",
-        "eslint": "^7.19.0",
+        "eslint": "^7.20.0",
         "eslint-config-prettier": "^7.2.0",
         "eslint-plugin-html": "^6.1.1",
         "eslint-plugin-import": "^2.22.1",
         "eslint-plugin-prettier": "^3.3.1",
         "html-minifier": "^4.0.0",
+        "js-yaml": "^3.14.1",
         "npm-run-all": "^4.1.5",
         "nunjucks": "^3.2.2",
         "postcss": "^8.2.6",
@@ -163,12 +164,12 @@
         "tailwindcss-css-filters": "^2.0.0",
         "tailwindcss-debug-screens": "^2.0.0",
         "tailwindcss-pseudo-elements": "^1.5.1",
-        "tailwindcss-scroll-snap": "^1.0.3",
+        "tailwindcss-scroll-snap": "^1.1.0",
         "tailwindcss-skip-link": "^1.0.1",
         "tailwindcss-textshadow": "^2.1.3"
     },
     "dependencies": {
         "alpinejs": "^2.8.0",
-        "litepicker": "^2.0.4"
+        "litepicker": "^2.0.5"
     }
 }
