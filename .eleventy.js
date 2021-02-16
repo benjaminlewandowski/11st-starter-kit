@@ -10,22 +10,30 @@ const pluginLazyImages = require('eleventy-plugin-lazyimages');
 const pluginSvgContents = require('eleventy-plugin-svg-contents');
 const pluginErrorOverlay = require('eleventy-plugin-error-overlay');
 /* const pluginTypeset = require('eleventy-plugin-typeset'); */
+const dumpFilter = require('@jamshop/eleventy-filter-dump');
 
 const production = process.env.NODE_ENV === 'production';
 
 module.exports = function (config) {
     config.setUseGitIgnore(true);
     config.setDataDeepMerge(true);
-    config.setQuietMode(true);
+
+    if (production) {
+        config.setQuietMode(true);
+    }
 
     // Plugins
     config.addPlugin(pluginNavigation);
     config.addPlugin(pluginRss);
     config.addPlugin(pluginSvgContents);
-    config.addPlugin(pluginErrorOverlay);
-    /* config.addPlugin(pluginTypeset); */
+    if (!production) {
+        config.addPlugin(pluginErrorOverlay);
+    }
     config.addPlugin(pluginSEO, require('./src/_site/_data/site.js'));
-    config.addPlugin(pluginLazyImages, { preferNativeLazyLoad: true });
+
+    if (production) {
+        config.addPlugin(pluginLazyImages, { preferNativeLazyLoad: true });
+    }
 
     // Static assets to pass through
     config.addPassthroughCopy({ './src/resources/fonts': 'fonts' });
@@ -41,9 +49,7 @@ module.exports = function (config) {
     config.addWatchTarget('./build/**');
 
     // Add dump filter to Nunjucks
-    config.addFilter('dump', (obj) => {
-        return util.inspect(obj);
-    });
+    config.addFilter('dump', dumpFilter);
 
     // Add a HTML timestamp formatter filter to Nunjucks
     config.addFilter(

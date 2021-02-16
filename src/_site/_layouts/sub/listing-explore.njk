@@ -5,16 +5,9 @@
     is-explore
 {% endblock class %}
 
-{% block Headline %}
-    <h1 class="container px-4 py-8 md:px-6 xl:px-8">
-        <span class="p-2 font-bold rounded bg-primary-900 text-neutral-100">{{ title }}</span>
-    </h1>
-{% endblock %}
-
 {% block content %}
-    {# sm:col-span-2 lg:col-span-3 xl:col-span-4 2xl:col-span-5 3xl:col-span-6 #}
     <section class="grid grid-cols-1 col-span-1 gap-2 md:gap-4 lg:gap-6 xl:gap-8 md:col-span-2 lg:col-span-3 xl:col-span-4 2xl:col-span-5 3xl:col-span-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 3xl:grid-cols-6" x-data="{ category: 'all' }">
-        <nav class="container -mt-24 md:col-span-2 lg:col-span-3 xl:col-span-4 2xl:col-span-5 3xl:col-span-6">
+        <nav class="-mt-24 sm:col-span-2 lg:col-span-3 xl:col-span-4 2xl:col-span-5 3xl:col-span-6">
             <ul class="flex space-x-4 overflow-x-auto flex-nowrap">
                 <li class="link-item">
                     <button class="p-2 rounded shadow bg-neutral-900 text-neutral-50" @click.prevent="category = 'all'" :class="{ 'active' : category === 'all' }">All</button>

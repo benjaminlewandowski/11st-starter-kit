@@ -922,6 +922,13 @@
     "gifsicle" "^5.1.0"
     "is-gif" "^3.0.0"
 
+"@jamshop/eleventy-filter-dump@^1.0.4":
+  "integrity" "sha512-I0x0SAOL6huycBUi9GYKkCfErAfsiku1s45T7tgZ/QKYRvvQVO+s2JZ7uqdGuXq+4PSlkJ0I2sq/PRMtxagoMg=="
+  "resolved" "https://registry.npmjs.org/@jamshop/eleventy-filter-dump/-/eleventy-filter-dump-1.0.4.tgz"
+  "version" "1.0.4"
+  dependencies:
+    "ansi-html" "0.0.7"
+
 "@mrmlnc/readdir-enhanced@^2.2.1":
   "integrity" "sha512-bPHp6Ji8b41szTOcaP63VlnbbO5Ny6dwAATtY6JTjh5N2OLrb5Qk/Th5cRkRQhkWCt+EJsYrNB0MiL+Gpn6e3g=="
   "resolved" "https://registry.npmjs.org/@mrmlnc/readdir-enhanced/-/readdir-enhanced-2.2.1.tgz"
@@ -1258,6 +1265,11 @@
   "integrity" "sha512-JoX0apGbHaUJBNl6yF+p6JAFYZ666/hhCGKN5t9QFjbJQKUU/g8MNbFDbvfrgKXvI1QpZplPOnwIo99lX/AAmA=="
   "resolved" "https://registry.npmjs.org/ansi-colors/-/ansi-colors-4.1.1.tgz"
   "version" "4.1.1"
+
+"ansi-html@0.0.7":
+  "integrity" "sha1-gTWEAhliqenm/QOflA0S9WynhZ4="
+  "resolved" "https://registry.npmjs.org/ansi-html/-/ansi-html-0.0.7.tgz"
+  "version" "0.0.7"
 
 "ansi-regex@^2.0.0":
   "integrity" "sha1-w7M6te42DYbg5ijwRorn7yfWVN8="

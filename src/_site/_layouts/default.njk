@@ -4,7 +4,9 @@
         {% include "_partials/html-head.njk" %}
     </head>
 
-    <body id="js-fade" class="min-h-screen antialiased leading-normal transition-opacity duration-300 ease-linear text-neutral-900 bg-neutral-300 loading dark:text-neutral-300 dark:bg-neutral-700 after:fixed after:bottom-0 after:w-full after:h-16 after:z-10 after:empty-content" data-env="{{ node.env }}" {% block showsidebar %}x-data="{ showsidebar: false }{% endblock %}">
+    <body id="js-fade" class="min-h-screen antialiased leading-normal transition-opacity duration-300 ease-linear text-neutral-900 bg-neutral-200 loading dark:text-neutral-300 dark:bg-neutral-700 after:fixed after:bottom-0 after:w-full after:h-16 after:z-10 after:empty-content" data-env="{{ node.env }}"
+    x-data="{ atTop: true, openModal: false{% block showsidebar %}, showsidebar: false {% endblock %}}"
+    x-on:scroll.window="atTop = (window.pageYOffset > 32) ? false : true; ">
         <script>
             document.getElementById("js-fade").classList.add("fade");
         </script>
@@ -14,7 +16,7 @@
         {% endblock %}
 
         {% block headlinewrapper %}
-            <header id="headline" class="pt-16 -mb-16 shadow-xl h-80 bg-gradient-to-r from-primary-900 to-primary-800">
+            <header id="headline" class="pt-16 -mb-16 shadow-xl h-80 bg-gradient-to-r from-primary-800 to-primary-900">
                 {% block Headline %}
                     <h1 class="sr-only">{{ page_title }}</h1>
                 {% endblock %}
@@ -22,7 +24,7 @@
         {% endblock %}
 
         {% block contentwrapper %}
-            <main class='container relative h-full pb-16 pl-4 pr-4 sm:pl-8 sm:pr-8' id="main-content">
+            <main class='container relative h-full pb-8 pl-4 pr-4 sm:pl-8 sm:pr-8' id="main-content">
                 {% block sidebar %}
                     {% include "_partials/site-sidebar.njk" %}
                 {% endblock %}

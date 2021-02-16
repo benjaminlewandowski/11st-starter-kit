@@ -1,9 +1,10 @@
+<script type="module" src="/picker.js" defer="defer"></script>
 <section class="grid grid-cols-1 gap-4 mb-4 auto-rows-auto xl:mb-6 xl:gap-6 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 3xl:grid-cols-5" x-data="{ category: 'all' }">
     <header class="col-span-1 sr-only md:col-span-2 lg:col-span-3 xl:col-span-4 2xl:col-span-5 3xl:col-span-6">
         <h2>Calendar</h2>
     </header>
 
-    <aside class="h-full col-span-1 p-2 transition-all duration-200 ease-linear bg-white rounded shadow md:p-4 hover:bg-neutral-50 hover:shadow-md" id="filter">
+    <aside class="h-full col-span-1 p-2 transition-all duration-200 ease-linear rounded shadow bg-neutral-100 md:p-4 hover:bg-white hover:shadow-md" id="filter">
         <header class="sr-only">Filter</header>
         <div class="top-20">
             <section>
@@ -110,48 +111,19 @@
     </aside>
 
     <div class="grid grid-cols-1 col-span-1 gap-4 xl:gap-6 lg:col-span-2 2xl:col-span-3 3xl:col-span-4 lg:grid-cols-2 2xl:grid-cols-3 3xl:grid-cols-4">
-        {% for i in range(0, 8) -%}
-            <article x-show="category === 'performance' || category === 'all'" class="flex flex-col col-span-1 transition-all duration-200 ease-linear bg-white rounded shadow hover:bg-neutral-50 hover:shadow-md event" data-category="performance" data-date="2021-02-06">
-                <header>
-                    <img class="rounded-t shadow" src="/media/images/placeholder.png" alt="placeholder">
-                    <h3 class="p-4 text-xl font-bold text-primary-800">Title</h3>
+        {% for video in videos.slice(0, 24) -%}
+            <article x-show="category === '{{video.category}}' || category === 'all'" class="flex flex-col col-span-1 pb-3 transition-all duration-200 ease-linear rounded shadow bg-neutral-100 hover:bg-white hover:shadow-md event" data-category="music" data-date="2021-02-06">
+                <header><a href="{{video.permalink}}" title="{{video.title}}">
+                    <picture class="flex items-center justify-center aspect-w-16 aspect-h-9">
+
+                        <img class="object-cover rounded-t shadow" src="{{video.picture}}" alt="{{video.title}}">
+                    </picture>
+                    <h2 class="p-4 text-xl font-bold text-primary-800">{{video.title}}</h2>
+                    </a>
                 </header>
 
                 <div class="px-4 mb-auto text-sm">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum vel similique explicabo provident? Eaque voluptatem ut natus facere corporis ullam expedita dolorem? Esse expedita temporibus asperiores illum dolorem necessitatibus quidem?</p>
-                </div>
-
-                <footer class="px-4">
-                    <ul class="flex flex-row flex-wrap items-start pt-4 pb-1 mb-2 overflow-x-auto overflow-y-hidden justify-items-start">
-                        <li class="flex items-center mb-2 mr-2 text-sm italic transition-all duration-200 ease-linear rounded-full shadow bg-neutral-200 hover:bg-neutral-300 hover:shadow-md ">
-                            <figure class="flex h-5 px-2 py-1 ">
-                                {{ '/src/_site/_includes/_icons/svg/hero/outline/calendar.svg' | svgContents("h-full") | safe }}
-                            </figure>
-                            <time datetime="2021-02-06" class='pr-2 text-xs leading-none pointer-events-none'>2021-02-06</time>
-                        </li>
-
-                        <li class="flex items-center text-sm transition-all duration-200 ease-linear rounded-full shadow bg-neutral-200 hover:bg-neutral-300 hover:shadow-md ">
-                            <button class='px-2 py-1 text-xs font-medium whitespace-nowrap' @click.prevent="category = 'performance'">
-                                <figure class="flex h-3 flex-nowrap">
-                                    {{ '/src/_site/_includes/_icons/svg/hero/outline/tag.svg' | svgContents("h-full") | safe }}
-                                    <figcaption class='pl-2 text-xs leading-none'>performance</figcaption>
-                                </figure>
-                            </button>
-                        </li>
-                    </ul>
-                </footer>
-            </article>
-        {%- endfor %}
-
-        {% for i in range(0, 8) -%}
-            <article x-show="category === 'music' || category === 'all'" class="flex flex-col col-span-1 transition-all duration-200 ease-linear bg-white rounded shadow hover:bg-neutral-50 hover:shadow-md event" data-category="music" data-date="2021-02-06">
-                <header>
-                    <img class="rounded-t shadow" src="/media/images/placeholder.png" alt="placeholder">
-                    <h2 class="p-4 text-xl font-bold text-primary-800">Title</h2>
-                </header>
-
-                <div class="px-4 mb-auto text-sm">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum vel similique explicabo provident? Eaque voluptatem ut natus facere corporis ullam expedita dolorem? Esse expedita temporibus asperiores illum dolorem necessitatibus quidem?</p>
+                    <p>{{video.about}}</p>
                 </div>
 
                 <footer class="px-4">
@@ -160,20 +132,20 @@
                             <figure class="flex h-5 px-2 py-1 ">
                                 {{ '/src/_site/_includes/_icons/svg/hero/outline/calendar.svg' | svgContents("h-full") | safe }}
                             </figure>
-                            <time datetime=" 2021-02-06" class='pr-2 text-xs leading-none'>2021-02-06</time>
+                            <time datetime="{{video.date}}" class='pr-2 text-xs leading-none'>{{video.date}}</time>
                         </li>
 
                         <li class="flex items-center text-sm rounded-full shadow bg-neutral-200">
-                            <button href='#' class='px-2 py-1 text-xs font-medium whitespace-nowrap' @click.prevent="category = 'music'">
+                            <button href='#' class='px-2 py-1 text-xs font-medium whitespace-nowrap' @click.prevent="category = '{{video.category}}'">
                                 <figure class="flex h-3 flex-nowrap">
                                     {{ '/src/_site/_includes/_icons/svg/hero/outline/tag.svg' | svgContents("h-full") | safe }}
-                                    <figcaption class='pl-2 text-xs leading-none'>music</figcaption>
+                                    <figcaption class='pl-2 text-xs leading-none'>{{video.category}}</figcaption>
                                 </figure>
                             </button>
                         </li>
                     </ul>
                 </footer>
             </article>
-        {%- endfor %}
+        {% endfor %}
     </div>
 </section>

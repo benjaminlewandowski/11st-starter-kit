@@ -5,7 +5,9 @@ pagination:
     alias: user
 permalink: "{{ user.permalink }}/"
 layout: profile-other
-title: "{{ user.username }}"
+eleventyComputed:
+    title: "{{ user.username }}"
 ---
-
 {{ user.username }}
+
+

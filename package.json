@@ -114,6 +114,7 @@
         "@babel/core": "^7.12.16",
         "@babel/preset-env": "^7.12.16",
         "@fullhuman/postcss-purgecss": "^4.0.0",
+        "@jamshop/eleventy-filter-dump": "^1.0.4",
         "@snowpack/plugin-postcss": "^1.1.0",
         "@snowpack/plugin-run-script": "^2.3.0",
         "@tailwindcss/aspect-ratio": "^0.2.0",

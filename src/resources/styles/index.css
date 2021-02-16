@@ -61,15 +61,7 @@
 }
 
 body {
-    &:after {
-        background: linear-gradient(
-            0deg,
-            rgb(203, 213, 225) 0%,
-            rgba(203, 213, 225, 0) 100%
-        );
-
-        pointer-events: none;
-    }
+    @apply after:from-transparent after:to-neutral-100 after:pointer-events-none;
 }
 
 .dark {
@@ -293,14 +285,13 @@ body {
 }
 
 .live::before {
-    margin-right: 0.5rem;
-
-    color: rgb(220, 38, 38);
-    font-weight: bold;
-    font-size: 2rem;
-    line-height: 0.5625;
+    @apply text-primary-500 mr-1 font-bold text-4xl leading-4;
 
     content: '•';
+
+    @media screen and (min-width: 512px) {
+        margin-right: 0.5rem;
+    }
 }
 
 #sidebar div {
@@ -311,7 +302,7 @@ body {
 }
 
 #filter div {
-    position: static;
+    @apply static;
 
     @media screen and (min-height: 36rem) {
         position: sticky;

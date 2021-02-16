@@ -1,4 +1,4 @@
 ---
-layout: 'page'
+layout: 'profile-own'
 title: 'Profile'
 ---

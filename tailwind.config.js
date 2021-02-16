@@ -125,6 +125,27 @@ module.exports = {
     variants: {
         extend: {
             display: ['dark'],
+            pointerEvents: [
+                'hover',
+                'before',
+                'after',
+                'hover_before',
+                'hover_after',
+            ],
+            gradientColorStops: [
+                'dark',
+                'before',
+                'after',
+                'hover_before',
+                'hover_after',
+            ],
+            backgroundImage: [
+                'dark',
+                'before',
+                'after',
+                'hover_before',
+                'hover_after',
+            ],
             textColor: [
                 'dark',
                 'before',
@@ -214,6 +235,7 @@ module.exports = {
         require('@tailwindcss/forms'),
         require('@tailwindcss/line-clamp'),
         require('@tailwindcss/typography'),
+        require('@tailwindcss/aspect-ratio'),
         require('tailwindcss-skip-link')(),
         require('tailwindcss-css-filters'),
         require('tailwindcss-skip-link'),
